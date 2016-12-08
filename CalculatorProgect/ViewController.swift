@@ -10,16 +10,36 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var displayView: UILabel!
+    
+    var typingInProcess = false
+    
+    @IBAction func clickDigitAction(_ sender: UIButton) {
+        
+        let digit = sender.currentTitle!
+        if typingInProcess {
+        let currentDisplayText = displayView.text!
+            displayView.text = currentDisplayText + digit
+        } else {
+        displayView.text = digit
+        }
+        typingInProcess = true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func operationsActions(_ sender: UIButton) {
+    
     }
+    
+    @IBAction func equalsAction(_ sender: UIButton) {
+    
+    }
+    
+    func performOperations () {
+    
+    }
+    
+    
 
-
+    
 }
 
