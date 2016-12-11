@@ -10,16 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var displayView: UILabel!
+    @IBOutlet private weak var displayView: UILabel!
     
-    var typingInProcess = false
+    private var typingInProcess = false
     
-    var firstOperand: Double = 0
-    var secondOperand: Double = 0
+    private var brain: CalculatorBrain = CalculatorBrain()          //to communicate with CalcBrain
+
     
-    var operationSymbol: String = ""
     
-    var currentInput: Double {
+     private var currentInput: Double {     //transforms string format into Double
         
         get {
         return Double(displayView.text!)!
@@ -29,11 +28,13 @@ class ViewController: UIViewController {
             typingInProcess = false
         }
     
-    } //transforms format into Double
+    }
     
+    
+   
 //MARK: - Actions - Digits Pressed
     
-    @IBAction func clickDigitAction(_ sender: UIButton) {
+    @IBAction private func clickDigitAction(_ sender: UIButton) {
         
         let number = sender.currentTitle!
         
@@ -49,100 +50,87 @@ class ViewController: UIViewController {
             typingInProcess = true
     }
 
+    
+    
 //MARK: - Actions - Binary Operations
 
-    @IBAction func binaryOperationAction(_ sender: UIButton) {         //operations that include 2 operands
+    
+    @IBAction private func binaryOperationAction(_ sender: UIButton) {      //when binary button is pressed
         
-        equalsAction(sender) //how to use nil in swift?
         
-        operationSymbol = sender.currentTitle!          //takes operation symbol from button title
-        firstOperand = currentInput
-        typingInProcess = false
+        
+        if typingInProcess {
+            brain.digit(value: currentInput)                    //sets operand
+            brain.saveBinaryOperationSymbol(symbol: sender.currentTitle!)           //saves binary oper symbol
+            typingInProcess = false
+        }
+//       
+//        if let operationSymbol = sender.currentTitle! {
+//            brain.binary(operation: BinaryOperation)
+//        }
+//        
+//        currentInput = brain.result
+//        
+        
+        
+    }
+
+//MARK: - Actions - Unary Operations
+
+    
+    @IBAction func unaryOperationAction(_ sender: UIButton) {                   //when unary button pressed
+
+        
+        
+        if typingInProcess {
+            brain.digit(value: currentInput)                            //sets operand
+//            typingInProcess = false
+
+        }
+        
+        brain.result = { (resultValue, error)->() in
+            self.displayView.text = String(describing: resultValue!)       //shows result of the unary operation on display
+        }
+        
+        switch sender.currentTitle! {           //connects symbol with unary func and enumof unary operations
+        case "√": brain.unary(operation: UnaryOperation.SquareRoot)
+        case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
+        case "cos": brain.unary(operation: UnaryOperation.Cos)
+        case "sin": brain.unary(operation: UnaryOperation.Sin)
+        case "tg": brain.unary(operation: UnaryOperation.Tan)
+        case "%": brain.unary(operation: UnaryOperation.Percent)
+        default:
+            break
+        }
     }
     
-    func binaryOperation(operation: (Double, Double) ->Double) {
-        currentInput = operation(firstOperand, secondOperand)
-        typingInProcess = false
-        
-    }                                               //this func takes 2 doubles and returns 1 doulble
-                                                    //here we use two operands we created earlier
     
 //MARK: - Actions - Equal and additional operations
 
     
     @IBAction func equalsAction(_ sender: UIButton) {
-    
-        if typingInProcess {
-            secondOperand = currentInput    //saves secondOperand
+        
+        brain.result = { (resultValue, error)->() in
+            self.displayView.text = String(describing: resultValue!)        //displays result
         }
-        
-        
-        switch operationSymbol { //checks which button is pressed using symbol that was remembered in binaryOperationAction
-            case "+":
-                binaryOperation {$0 + $1}
-            case "-":
-                binaryOperation {$0 - $1}
-            case "×":
-                binaryOperation {$0 * $1}
-            case "÷":
-                binaryOperation {$0 / $1}         //using closures here $0 and $1 are replaced with corresponding operands
-            default: break
-        }
-        
+
+        brain.digit(value: currentInput)                        //saves second operand
+        brain.utility(operation: UtilityOperation.Equal)        //connected to func utility in brain
+                
     }
     
     @IBAction func clearButtonPressed(_ sender: UIButton) {
         
-        firstOperand = 0
-        secondOperand = 0
+        brain.operandOne = nil
+        brain.operandTwo = nil
         currentInput = 0
         displayView.text = "0"
         typingInProcess = false
-        operationSymbol = ""
+        brain.operationSymbol = nil
     
     }
     
-    @IBAction func percentButtonPressed(_ sender: UIButton) {
-        if firstOperand == 0 {
-            currentInput = currentInput / 100
-        } else {
-            secondOperand = firstOperand * currentInput / 100
-        }
-    }
-    
-    @IBAction func plusMinusButtonPressed(_ sender: UIButton) {
-        currentInput = -currentInput
-    }
-    
-    @IBAction func squareRootButtonPressed(_ sender: UIButton) {
-        currentInput = sqrt(currentInput)
-    }
 
-    @IBAction func dotButtonPressed(_ sender: UIButton) {
-        
-        displayView.text = displayView.text! + "."
-        
-
-    }
-    @IBAction func eButtonPressed(_ sender: UIButton) {
-        currentInput = M_E
-    }
-    
-    @IBAction func piButtonPressed(_ sender: UIButton) {
-        currentInput = M_PI
-    }
-    
-    @IBAction func cosButtonPressed(_ sender: UIButton) {
-        currentInput = cos(currentInput)
-    }
-
-    @IBAction func sinButtonPressed(_ sender: UIButton) {
-       currentInput = sin(currentInput)
-    }
-    
-    @IBAction func tgButtonPressed(_ sender: UIButton) {
-        currentInput = tan(currentInput)
-    }
 
 
 

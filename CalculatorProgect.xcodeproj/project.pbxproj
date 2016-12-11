@@ -14,6 +14,8 @@
 		2582D51D1DF81776000AB2DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2582D51B1DF81776000AB2DB /* LaunchScreen.storyboard */; };
 		2582D5281DF81776000AB2DB /* CalculatorProgectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582D5271DF81776000AB2DB /* CalculatorProgectTests.swift */; };
 		2582D5331DF81776000AB2DB /* CalculatorProgectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582D5321DF81776000AB2DB /* CalculatorProgectUITests.swift */; };
+		51C564E71DFC3F600056FE9F /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C564E61DFC3F600056FE9F /* CalculatorBrain.swift */; };
+		51C564E91DFC3F9A0056FE9F /* CalcBrainInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C564E81DFC3F9A0056FE9F /* CalcBrainInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		2582D52E1DF81776000AB2DB /* CalculatorProgectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorProgectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2582D5321DF81776000AB2DB /* CalculatorProgectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorProgectUITests.swift; sourceTree = "<group>"; };
 		2582D5341DF81776000AB2DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51C564E61DFC3F600056FE9F /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorBrain.swift; path = Model/CalculatorBrain.swift; sourceTree = "<group>"; };
+		51C564E81DFC3F9A0056FE9F /* CalcBrainInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalcBrainInterface.swift; path = Model/CalcBrainInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				2582D5121DF81776000AB2DB /* AppDelegate.swift */,
+				51C564E81DFC3F9A0056FE9F /* CalcBrainInterface.swift */,
+				51C564E61DFC3F600056FE9F /* CalculatorBrain.swift */,
 				2582D5141DF81776000AB2DB /* ViewController.swift */,
 				2582D5161DF81776000AB2DB /* Main.storyboard */,
 				2582D5191DF81776000AB2DB /* Assets.xcassets */,
@@ -259,8 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51C564E71DFC3F600056FE9F /* CalculatorBrain.swift in Sources */,
 				2582D5151DF81776000AB2DB /* ViewController.swift in Sources */,
 				2582D5131DF81776000AB2DB /* AppDelegate.swift in Sources */,
+				51C564E91DFC3F9A0056FE9F /* CalcBrainInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +513,7 @@
 				2582D5391DF81776000AB2DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2582D53A1DF81776000AB2DB /* Build configuration list for PBXNativeTarget "CalculatorProgectTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +522,7 @@
 				2582D53C1DF81776000AB2DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2582D53D1DF81776000AB2DB /* Build configuration list for PBXNativeTarget "CalculatorProgectUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +531,7 @@
 				2582D53F1DF81776000AB2DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
