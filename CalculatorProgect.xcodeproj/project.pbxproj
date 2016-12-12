@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2564B2E41DFE9EAB007C4CFD /* OutputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2564B2E31DFE9EAB007C4CFD /* OutputController.swift */; };
+		2564B2E61DFEA65F007C4CFD /* InputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2564B2E51DFEA65F007C4CFD /* InputController.swift */; };
 		2582D5131DF81776000AB2DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582D5121DF81776000AB2DB /* AppDelegate.swift */; };
 		2582D5151DF81776000AB2DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582D5141DF81776000AB2DB /* ViewController.swift */; };
 		2582D5181DF81776000AB2DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2582D5161DF81776000AB2DB /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2564B2E31DFE9EAB007C4CFD /* OutputController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputController.swift; sourceTree = "<group>"; };
+		2564B2E51DFEA65F007C4CFD /* InputController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputController.swift; sourceTree = "<group>"; };
 		2582D50F1DF81776000AB2DB /* CalculatorProgect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalculatorProgect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2582D5121DF81776000AB2DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2582D5141DF81776000AB2DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 				51C564E81DFC3F9A0056FE9F /* CalcBrainInterface.swift */,
 				51C564E61DFC3F600056FE9F /* CalculatorBrain.swift */,
 				2582D5141DF81776000AB2DB /* ViewController.swift */,
+				2564B2E31DFE9EAB007C4CFD /* OutputController.swift */,
+				2564B2E51DFEA65F007C4CFD /* InputController.swift */,
 				2582D5161DF81776000AB2DB /* Main.storyboard */,
 				2582D5191DF81776000AB2DB /* Assets.xcassets */,
 				2582D51B1DF81776000AB2DB /* LaunchScreen.storyboard */,
@@ -265,9 +271,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2564B2E61DFEA65F007C4CFD /* InputController.swift in Sources */,
 				51C564E71DFC3F600056FE9F /* CalculatorBrain.swift in Sources */,
 				2582D5151DF81776000AB2DB /* ViewController.swift in Sources */,
 				2582D5131DF81776000AB2DB /* AppDelegate.swift in Sources */,
+				2564B2E41DFE9EAB007C4CFD /* OutputController.swift in Sources */,
 				51C564E91DFC3F9A0056FE9F /* CalcBrainInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

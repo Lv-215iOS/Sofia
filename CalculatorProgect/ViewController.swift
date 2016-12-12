@@ -12,6 +12,9 @@ class ViewController: UIViewController {
 
     @IBOutlet private weak var displayView: UILabel!
     
+    var outputController: OutputController? = nil
+    var inputController: InputController? = nil
+    
     private var typingInProcess = false
     
     private var brain: CalculatorBrain = CalculatorBrain()          //to communicate with CalcBrain
@@ -30,7 +33,14 @@ class ViewController: UIViewController {
     
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "OutputControllerEmbedSegue" {
+        outputController = segue.destination as?OutputController                //swift casting as?
+        
+        } else if segue.identifier == "InputControllerEmbedSegue"{
+        inputController = segue.destination as?InputController
+        }
+    }
    
 //MARK: - Actions - Digits Pressed
     
