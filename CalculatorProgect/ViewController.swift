@@ -9,140 +9,105 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    private var typingInProcess = false
+    private var brain: CalculatorBrain = CalculatorBrain()          //to communicate with CalcBrain
 
-    @IBOutlet private weak var displayView: UILabel!
     
     var outputController: OutputController? = nil
     var inputController: InputController? = nil
     
-    private var typingInProcess = false
+       private var currentInput: Double {     //transforms string format into Double
     
-    private var brain: CalculatorBrain = CalculatorBrain()          //to communicate with CalcBrain
-
+            get {
+                return Double((self.outputController?.displayView.text!)!)!
+            }
+            set {
+                self.outputController?.displayView.text = "\(newValue)"
+                typingInProcess = false
+            }
     
-    
-     private var currentInput: Double {     //transforms string format into Double
-        
-        get {
-        return Double(displayView.text!)!
-        }
-        set {
-        displayView.text = "\(newValue)"
-            typingInProcess = false
-        }
-    
-    }
+      }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OutputControllerEmbedSegue" {
-        outputController = segue.destination as?OutputController                //swift casting as?
-        
+        outputController = segue.destination as? OutputController                //swift casting
+        outputController?.mainVC = self
         } else if segue.identifier == "InputControllerEmbedSegue"{
         inputController = segue.destination as?InputController
+        inputController?.mainVC = self
         }
     }
    
-//MARK: - Actions - Digits Pressed
-    
-    @IBAction private func clickDigitAction(_ sender: UIButton) {
+    func digitPressed(operation : String) {
         
-        let number = sender.currentTitle!
         
         if  typingInProcess {
-        
-            if (displayView.text?.characters.count)! < 20 {         //will not display more than 20 charachters
-                displayView.text = displayView.text! + number       //adds newly pressed number to the previous one
+            
+            if (self.outputController?.displayView.text?.characters.count)! < 20 {         //will not display more than 20 charachters
+                self.outputController?.displayView.text! = (self.outputController?.displayView.text!)! + operation       //adds newly pressed number to the previous one
             }
         } else {
-        
-            displayView.text = number
-     }
-            typingInProcess = true
+            
+            self.outputController?.displayView.text = operation
+        }
+        typingInProcess = true
+
     }
-
     
-    
-//MARK: - Actions - Binary Operations
-
-    
-    @IBAction private func binaryOperationAction(_ sender: UIButton) {      //when binary button is pressed
-        
-        
-        
-        if typingInProcess {
+    func binaryOperationButtonPressed(operation : String) {
+            if typingInProcess {
             brain.digit(value: currentInput)                    //sets operand
-            brain.saveBinaryOperationSymbol(symbol: sender.currentTitle!)           //saves binary oper symbol
+            brain.saveBinaryOperationSymbol(symbol: operation)           //saves binary oper symbol
             typingInProcess = false
-        }
-//       
-//        if let operationSymbol = sender.currentTitle! {
-//            brain.binary(operation: BinaryOperation)
-//        }
+            }
+    }
+
+    func unaryOperationButtonPressed(operation : String) {
+        
+//                if typingInProcess {
+//                    brain.digit(value: currentInput)                            //sets operand
+//                    //            typingInProcess = false
 //        
-//        currentInput = brain.result
+//                }
 //        
-        
-        
-    }
+//                brain.result = { (resultValue, error)->() in
+//                    self.displayView.text = String(describing: resultValue!)       //shows result of the unary operation on display
+//                }
+//        
+//                switch sender.currentTitle! {           //connects symbol with unary func and enumof unary operations
+//                case "√": brain.unary(operation: UnaryOperation.SquareRoot)
+//                case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
+//                case "cos": brain.unary(operation: UnaryOperation.Cos)
+//                case "sin": brain.unary(operation: UnaryOperation.Sin)
+//                case "tg": brain.unary(operation: UnaryOperation.Tan)
+//                case "%": brain.unary(operation: UnaryOperation.Percent)
+//                default:
+//                    break
+//                }
+//        
 
-//MARK: - Actions - Unary Operations
-
-    
-    @IBAction func unaryOperationAction(_ sender: UIButton) {                   //when unary button pressed
-
-        
-        
-        if typingInProcess {
-            brain.digit(value: currentInput)                            //sets operand
-//            typingInProcess = false
-
-        }
-        
-        brain.result = { (resultValue, error)->() in
-            self.displayView.text = String(describing: resultValue!)       //shows result of the unary operation on display
-        }
-        
-        switch sender.currentTitle! {           //connects symbol with unary func and enumof unary operations
-        case "√": brain.unary(operation: UnaryOperation.SquareRoot)
-        case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
-        case "cos": brain.unary(operation: UnaryOperation.Cos)
-        case "sin": brain.unary(operation: UnaryOperation.Sin)
-        case "tg": brain.unary(operation: UnaryOperation.Tan)
-        case "%": brain.unary(operation: UnaryOperation.Percent)
-        default:
-            break
-        }
     }
     
-    
-//MARK: - Actions - Equal and additional operations
-
-    
-    @IBAction func equalsAction(_ sender: UIButton) {
+    func equalsButtonPressed(operation : String) {
         
-        brain.result = { (resultValue, error)->() in
-            self.displayView.text = String(describing: resultValue!)        //displays result
-        }
-
-        brain.digit(value: currentInput)                        //saves second operand
-        brain.utility(operation: UtilityOperation.Equal)        //connected to func utility in brain
-                
+                brain.result = { (resultValue, error)->() in
+                    self.outputController?.displayView.text = String(describing: resultValue!)        //displays result
+                }
+        
+                brain.digit(value: currentInput)                        //saves second operand
+                brain.utility(operation: UtilityOperation.Equal)        //connected to func utility in brain
+        
     }
     
-    @IBAction func clearButtonPressed(_ sender: UIButton) {
-        
-        brain.operandOne = nil
-        brain.operandTwo = nil
-        currentInput = 0
-        displayView.text = "0"
-        typingInProcess = false
-        brain.operationSymbol = nil
-    
+    func ClearButtonPressed(operation : String) {
+                brain.operandOne = nil
+                brain.operandTwo = nil
+                currentInput = 0
+                self.outputController?.displayView.text = "0"
+                typingInProcess = false
+                brain.operationSymbol = nil
     }
-    
-
-
-
-
 }
+
 

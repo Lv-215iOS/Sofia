@@ -10,12 +10,15 @@
 import UIKit
 
 protocol Output {
-    //var output:String {get set}
+    func output()
 }
 class OutputController: UIViewController, Output {
-//    var output {
-//        get{}
-//        set{}
-//
-//    }
+    
+    var mainVC: ViewController? = nil
+    
+    func output() {
+        
+    }
+    @IBOutlet weak var displayView: UILabel!
+    
 }
