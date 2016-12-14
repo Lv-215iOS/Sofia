@@ -8,60 +8,66 @@
 
 import UIKit
 
+protocol Input {
+    //func callback -> type of what is pressed
+    //rewrite IBActions here
+    //it can catch string for example, and send it through ViewController to Brain
+    //VC should not do anything, just catch segue, and transfer info
 
-protocol InputInterface {
-    var buttonDidPress: ((_ operation: String)->())? {get set}
 }
 
-class InputController: UIViewController, InputInterface {
+class InputController: UIViewController, Input {
+ 
+    
+    
+    var mainVC: ViewController? = nil
     
     
     
-    //var mainVC: InputInterface? = nil  //is a callback func
     
-    var buttonDidPress: ((_ operation: String)->())? = nil
     
+
     
     //MARK: - Actions - Digits Pressed
-    
+
     @IBAction func touchDigitAction(_ sender: UIButton) {
-        
-        buttonDidPress!(sender.currentTitle!)
+       
+        mainVC?.digitPressed(operation: sender.currentTitle!)
         
         
     }
     
     //MARK: - Actions - Binary Operations
-    
+
     @IBAction func binaryOperationAction(_ sender: UIButton) {
-        
-        buttonDidPress!(sender.currentTitle!)
-        
-        
+    
+       mainVC?.binaryOperationButtonPressed(operation: sender.currentTitle!)
+
+
     }
-    
+
     //MARK: - Actions - Unary Operations
-    
+
     @IBAction func unaryOperationAction(_ sender: UIButton) { //when unary button pressed
         
-        
-        buttonDidPress!(sender.currentTitle!)
-        
+    
+        mainVC?.unaryOperationButtonPressed(operation: sender.currentTitle!)
+
         
     }
     
     //MARK: - Actions - Equal and additional operations
-    
+
     @IBAction func equalsAction(_ sender: UIButton) {
         
-        buttonDidPress!(sender.currentTitle!)
-        
+        mainVC?.equalsButtonPressed(operation: sender.currentTitle!)
+
     }
     
     @IBAction func clearAction(_ sender: UIButton) {
-        
-        buttonDidPress!(sender.currentTitle!)
-        
+
+        mainVC?.ClearButtonPressed(operation: sender.currentTitle!)
+
         
     }
 }

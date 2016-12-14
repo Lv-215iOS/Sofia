@@ -18,20 +18,10 @@ class CalculatorBrain: CalcBrainInterface {
     
     
     var resultValue: Double?
-    
+
     var operationSymbol: BinaryOperation?
-    
-    func digit(value: Double) { //sets operands
-        
-        //        if currentOperand != nil && operandOne == nil && operandTwo == nil {
-        //        operandOne = value
-        //        } else if currentOperand != nil && operandOne != nil && operandTwo == nil {
-        //        operandTwo = value
-        //        } else if currentOperand != nil && operandOne != nil && operandTwo != nil {
-        //        operandOne = currentOperand
-        //
-        //        }
-        
+
+    func digit(value: Double) {                          //sets operands
         if operandOne == nil {
             operandOne = value
         } else if operandTwo == nil {
@@ -51,6 +41,8 @@ class CalculatorBrain: CalcBrainInterface {
     
     func binary(operation: BinaryOperation) {
         
+       
+        
         switch operation { //checks which button is pressed using symbol that was remembered in saveBinaryOperationSymbol
         case .Plus:
             resultValue = (operandOne ?? 0.0) + (operandTwo ?? 0.0)
@@ -64,7 +56,6 @@ class CalculatorBrain: CalcBrainInterface {
         case .Div:
             resultValue = (operandOne ?? 0.0) / (operandTwo ?? 0.0)
             result?(resultValue, nil)
-            
         }
         
     }
@@ -73,39 +64,39 @@ class CalculatorBrain: CalcBrainInterface {
         if resultValue != nil && operandTwo != nil {
             operandTwo = resultValue!
         } else if operandTwo == nil && operandOne != nil && resultValue != nil{
-            operandOne = resultValue!
+             operandOne = resultValue!
         }
     }
     
-    func unary(operation: UnaryOperation) { //performs unary operation
+    func unary(operation: UnaryOperation) { //persorms unary operation
         
         if operandTwo != nil {                                  //sets current operand
-            currentOperand = operandTwo!
+        currentOperand = operandTwo!
         } else if operandTwo == nil && operandOne != nil {
-            currentOperand = operandOne!
+        currentOperand = operandOne!
         }
         
         switch operation {
         case .SquareRoot:
-            resultValue = sqrt(currentOperand!)
-            
-            resultValSaveAsCorrespOper()             //????????? consider replacing
-            
-            //        operandTwo = resultValue
-            
-            result?(resultValue, nil)
+       resultValue = sqrt(currentOperand!)
+       
+       resultValSaveAsCorrespOper()             //????????? consider replacing
+       
+//        operandTwo = resultValue
+
+        result?(resultValue, nil)
             
             
         case .PlusMinus: break
-        //currentInput = -currentInput
+            //currentInput = -currentInput
         case .Cos: break // currentInput = cos(currentInput)
         case .Sin: break //currentInput = sin(currentInput)
         case .Tan: break //currentInput = tan(currentInput)
         case .Percent: break //if currentInput >= 0 {
-            //            currentInput = currentInput / 100
-            //        } else {
-            //            displayView.text = "error"
-            //            }
+//            currentInput = currentInput / 100
+//        } else {
+//            displayView.text = "error"
+//            }
         }
     }
     

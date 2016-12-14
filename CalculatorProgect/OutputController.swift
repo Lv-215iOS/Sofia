@@ -9,10 +9,12 @@
 
 import UIKit
 
-
-class OutputController: UIViewController {
+protocol Output {
+    func output()
+}
+class OutputController: UIViewController, Output {
     
-    var mainVC: OutputInterface? = nil
+    var mainVC: ViewController? = nil
     
     func output() {
         
