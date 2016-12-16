@@ -25,8 +25,7 @@ class ViewController: UIViewController {
             set {
                 self.outputController?.displayView.text = "\(newValue)"
                 typingInProcess = false
-            }
-    
+            }    
       }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
