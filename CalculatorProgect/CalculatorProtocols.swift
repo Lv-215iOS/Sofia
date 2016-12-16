@@ -1,8 +1,8 @@
 //
-//  CalcBrainInterface.swift
+//  CalculatorProtocols.swift
 //  CalculatorProgect
 //
-//  Created by Yuriy Lubinets on 12/10/16.
+//  Created by AdminAccount on 12/16/16.
 //  Copyright © 2016 adminaccount. All rights reserved.
 //
 
@@ -37,6 +37,9 @@ protocol CalcBrainInterface {
     func unary(operation: UnaryOperation)
     func utility(operation: UtilityOperation)
     var result: ((Double?, Error?)->())? {get set}   //is being called ONLY if equal pressed
-
+    
 }
 
+protocol InputInterface {
+    var buttonDidPress: ((_ operation: String)->())? {get set}
+}

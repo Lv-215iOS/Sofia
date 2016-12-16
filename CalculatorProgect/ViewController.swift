@@ -32,10 +32,15 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OutputControllerEmbedSegue" {
         outputController = segue.destination as? OutputController                //swift casting
-        outputController?.mainVC = self
+        //outputController?.mainVC = self
         } else if segue.identifier == "InputControllerEmbedSegue"{
         inputController = segue.destination as?InputController
-        inputController?.mainVC = self
+        inputController?.buttonDidPress = { string in  //call back function from inputController that catches string from button title
+            
+         //   self.buttonDidPress(operation: string)
+   
+            
+        //inputController?.mainVC = self
         }
     }
    
@@ -65,27 +70,27 @@ class ViewController: UIViewController {
 
     func unaryOperationButtonPressed(operation : String) {
         
-//                if typingInProcess {
-//                    brain.digit(value: currentInput)                            //sets operand
-//                    //            typingInProcess = false
-//        
-//                }
-//        
-//                brain.result = { (resultValue, error)->() in
-//                    self.displayView.text = String(describing: resultValue!)       //shows result of the unary operation on display
-//                }
-//        
-//                switch sender.currentTitle! {           //connects symbol with unary func and enumof unary operations
-//                case "√": brain.unary(operation: UnaryOperation.SquareRoot)
-//                case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
-//                case "cos": brain.unary(operation: UnaryOperation.Cos)
-//                case "sin": brain.unary(operation: UnaryOperation.Sin)
-//                case "tg": brain.unary(operation: UnaryOperation.Tan)
-//                case "%": brain.unary(operation: UnaryOperation.Percent)
-//                default:
-//                    break
-//                }
-//        
+                if typingInProcess {
+                    brain.digit(value: currentInput)                            //sets operand
+                    //            typingInProcess = false
+        
+                }
+        
+                brain.result = { (resultValue, error)->() in
+                    self.outputController?.displayView.text = String(describing: resultValue!)       //shows result of the unary operation on display
+                }
+        
+                switch operation {           //connects symbol with unary func and enumof unary operations
+                case "√": brain.unary(operation: UnaryOperation.SquareRoot)
+                case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
+                case "cos": brain.unary(operation: UnaryOperation.Cos)
+                case "sin": brain.unary(operation: UnaryOperation.Sin)
+                case "tg": brain.unary(operation: UnaryOperation.Tan)
+                case "%": brain.unary(operation: UnaryOperation.Percent)
+                default:
+                    break
+                }
+//
 
     }
     
@@ -100,7 +105,7 @@ class ViewController: UIViewController {
         
     }
     
-    func ClearButtonPressed(operation : String) {
+    func clearButtonPressed(operation : String) {
                 brain.operandOne = nil
                 brain.operandTwo = nil
                 currentInput = 0
@@ -108,6 +113,36 @@ class ViewController: UIViewController {
                 typingInProcess = false
                 brain.operationSymbol = nil
     }
+    
+    func buttonDidPress (operation: String) {
+        switch operation {
+        case "1": digitPressed(operation: operation)
+        case "2": digitPressed(operation: operation)
+        case "3": digitPressed(operation: operation)
+        case "4": digitPressed(operation: operation)
+        case "5": digitPressed(operation: operation)
+        case "6": digitPressed(operation: operation)
+        case "7": digitPressed(operation: operation)
+        case "8": digitPressed(operation: operation)
+        case "9": digitPressed(operation: operation)
+        case "0": digitPressed(operation: operation)
+        case "+": binaryOperationButtonPressed(operation: operation)
+        case "-": binaryOperationButtonPressed(operation: operation)
+        case "÷": binaryOperationButtonPressed(operation: operation)
+        case "×": binaryOperationButtonPressed(operation: operation)
+        case "√": unaryOperationButtonPressed(operation: operation)
+        case "cos": unaryOperationButtonPressed(operation: operation)
+        case "sin": unaryOperationButtonPressed(operation: operation)
+        case "tg": unaryOperationButtonPressed(operation: operation)
+        case "%": unaryOperationButtonPressed(operation: operation)
+        case "+/-": unaryOperationButtonPressed(operation: operation)
+        case "=": equalsButtonPressed(operation: operation)
+        case "C": clearButtonPressed(operation: operation)
+        default: break
+        }
+
+    
+    }
+
+    }
 }
-
-

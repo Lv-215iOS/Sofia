@@ -8,21 +8,16 @@
 
 import UIKit
 
-protocol Input {
-    //func callback -> type of what is pressed
-    //rewrite IBActions here
-    //it can catch string for example, and send it through ViewController to Brain
-    //VC should not do anything, just catch segue, and transfer info
 
-}
 
-class InputController: UIViewController, Input {
+
+class InputController: UIViewController, InputInterface {
  
     
     
-    var mainVC: ViewController? = nil
+    var mainVC: InputInterface? = nil
     
-    
+     var buttonDidPress: ((_ operation: String)->())? = nil
     
     // jdfjgdj
     
@@ -32,7 +27,7 @@ class InputController: UIViewController, Input {
 
     @IBAction func touchDigitAction(_ sender: UIButton) {
        
-        mainVC?.digitPressed(operation: sender.currentTitle!)
+        buttonDidPress?(sender.currentTitle!)
         
         
     }
@@ -41,7 +36,7 @@ class InputController: UIViewController, Input {
 
     @IBAction func binaryOperationAction(_ sender: UIButton) {
     
-       mainVC?.binaryOperationButtonPressed(operation: sender.currentTitle!)
+       buttonDidPress?(sender.currentTitle!)
 
 
     }
@@ -51,7 +46,7 @@ class InputController: UIViewController, Input {
     @IBAction func unaryOperationAction(_ sender: UIButton) { //when unary button pressed
         
     
-        mainVC?.unaryOperationButtonPressed(operation: sender.currentTitle!)
+        buttonDidPress?(sender.currentTitle!)
 
         
     }
@@ -60,13 +55,13 @@ class InputController: UIViewController, Input {
 
     @IBAction func equalsAction(_ sender: UIButton) {
         
-        mainVC?.equalsButtonPressed(operation: sender.currentTitle!)
+        buttonDidPress?(sender.currentTitle!)
 
     }
     
     @IBAction func clearAction(_ sender: UIButton) {
 
-        mainVC?.ClearButtonPressed(operation: sender.currentTitle!)
+        buttonDidPress?(sender.currentTitle!)
 
         
     }
