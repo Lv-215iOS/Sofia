@@ -13,14 +13,7 @@ import UIKit
 
 class InputController: UIViewController, InputInterface {
  
-    
-    
-    var mainVC: InputInterface? = nil
-    
-     var buttonDidPress: ((_ operation: String)->())? = nil
-    
-    // jdfjgdj
-    
+    var buttonDidPress: ((_ operation: String)->())? = nil
 
     
     //MARK: - Actions - Digits Pressed

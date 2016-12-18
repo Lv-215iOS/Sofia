@@ -43,3 +43,7 @@ protocol CalcBrainInterface {
 protocol InputInterface {
     var buttonDidPress: ((_ operation: String)->())? {get set}
 }
+
+protocol OutputInterface {
+    func output()
+}

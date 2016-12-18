@@ -13,21 +13,24 @@ class CalculatorBrain: CalcBrainInterface {
     var operandOne: Double?
     var operandTwo: Double?
     
-    var currentOperand: Double?
-    
-    
     
     var resultValue: Double?
-
+    
+    var brainCurrentInput: Double? //in order to perform unary operation
+    
     var operationSymbol: BinaryOperation?
-
+    
     func digit(value: Double) {                          //sets operands
+        
+        
         if operandOne == nil {
             operandOne = value
         } else if operandTwo == nil {
             operandTwo = value
         }
     }
+    
+    
     
     func saveBinaryOperationSymbol(symbol: String){ //identifies case from enum as string of the symbol pressed
         switch symbol {
@@ -41,7 +44,7 @@ class CalculatorBrain: CalcBrainInterface {
     
     func binary(operation: BinaryOperation) {
         
-       
+        
         
         switch operation { //checks which button is pressed using symbol that was remembered in saveBinaryOperationSymbol
         case .Plus:
@@ -60,43 +63,37 @@ class CalculatorBrain: CalcBrainInterface {
         
     }
     
-    func resultValSaveAsCorrespOper() {                         //????????? consider replacing
-        if resultValue != nil && operandTwo != nil {
-            operandTwo = resultValue!
-        } else if operandTwo == nil && operandOne != nil && resultValue != nil{
-             operandOne = resultValue!
-        }
-    }
+    
     
     func unary(operation: UnaryOperation) { //persorms unary operation
         
-        if operandTwo != nil {                                  //sets current operand
-        currentOperand = operandTwo!
-        } else if operandTwo == nil && operandOne != nil {
-        currentOperand = operandOne!
-        }
         
         switch operation {
         case .SquareRoot:
-       resultValue = sqrt(currentOperand!)
-       
-       resultValSaveAsCorrespOper()             //????????? consider replacing
-       
-//        operandTwo = resultValue
-
-        result?(resultValue, nil)
+            resultValue = sqrt(brainCurrentInput!)
+            result?(resultValue, nil)
             
-            
-        case .PlusMinus: break
-            //currentInput = -currentInput
-        case .Cos: break // currentInput = cos(currentInput)
-        case .Sin: break //currentInput = sin(currentInput)
-        case .Tan: break //currentInput = tan(currentInput)
-        case .Percent: break //if currentInput >= 0 {
-//            currentInput = currentInput / 100
-//        } else {
-//            displayView.text = "error"
-//            }
+        case .PlusMinus:
+            resultValue = -brainCurrentInput!
+            result?(resultValue, nil)
+        case .Cos:
+            resultValue = cos(brainCurrentInput!)
+            result?(resultValue, nil)
+        case .Sin:
+            resultValue = sin(brainCurrentInput!)
+            result?(resultValue, nil)
+        case .Tan:
+            resultValue = tan(brainCurrentInput!)
+            result?(resultValue, nil)
+        case .Percent: if brainCurrentInput! >= 0 {
+                        brainCurrentInput = brainCurrentInput! / 100
+                        resultValue = brainCurrentInput
+                        result?(resultValue, nil)
+                    } else {
+                        brainCurrentInput = nil
+                        resultValue = brainCurrentInput
+                        result?(resultValue, nil)
+            }
         }
     }
     
