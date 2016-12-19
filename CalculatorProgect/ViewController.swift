@@ -101,7 +101,7 @@ class ViewController: UIViewController {
             brain.operandTwo = nil
         }
         brain.digit(value: currentInput)
-                           //saves second operand
+        //saves second operand
         brain.utility(operation: UtilityOperation.Equal)        //connected to func utility in brain
         
     }

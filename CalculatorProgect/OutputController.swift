@@ -12,7 +12,7 @@ import UIKit
 
 class OutputController: UIViewController, OutputInterface {
     
-
+    
     @IBOutlet weak var displayView: UILabel!
     
     

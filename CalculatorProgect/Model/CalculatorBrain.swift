@@ -86,13 +86,13 @@ class CalculatorBrain: CalcBrainInterface {
             resultValue = tan(brainCurrentInput!)
             result?(resultValue, nil)
         case .Percent: if brainCurrentInput! >= 0 {
-                        brainCurrentInput = brainCurrentInput! / 100
-                        resultValue = brainCurrentInput
-                        result?(resultValue, nil)
-                    } else {
-                        brainCurrentInput = nil
-                        resultValue = brainCurrentInput
-                        result?(resultValue, nil)
+            brainCurrentInput = brainCurrentInput! / 100
+            resultValue = brainCurrentInput
+            result?(resultValue, nil)
+        } else {
+            brainCurrentInput = nil
+            resultValue = brainCurrentInput
+            result?(resultValue, nil)
             }
         }
     }
