@@ -8,54 +8,34 @@
 
 import UIKit
 
-
-
-
 class InputController: UIViewController, InputInterface {
     
     var buttonDidPress: ((_ operation: String)->())? = nil
     
     
-    //MARK: - Actions - Digits Pressed
+    //MARK: - Actions
     
     @IBAction func touchDigitAction(_ sender: UIButton) {
-        
         buttonDidPress?(sender.currentTitle!)
-        
-        
     }
-    
-    //MARK: - Actions - Binary Operations
     
     @IBAction func binaryOperationAction(_ sender: UIButton) {
-        
         buttonDidPress?(sender.currentTitle!)
-        
-        
     }
     
-    //MARK: - Actions - Unary Operations
-    
-    @IBAction func unaryOperationAction(_ sender: UIButton) { //when unary button pressed
-        
-        
+    @IBAction func unaryOperationAction(_ sender: UIButton) {
         buttonDidPress?(sender.currentTitle!)
-        
-        
     }
-    
-    //MARK: - Actions - Equal and additional operations
     
     @IBAction func equalsAction(_ sender: UIButton) {
-        
         buttonDidPress?(sender.currentTitle!)
-        
     }
     
     @IBAction func clearAction(_ sender: UIButton) {
-        
         buttonDidPress?(sender.currentTitle!)
-        
-        
+    }
+
+    @IBAction func dotAction(_ sender: UIButton) {
+        buttonDidPress?(sender.currentTitle!)
     }
 }

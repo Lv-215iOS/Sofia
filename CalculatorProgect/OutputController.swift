@@ -9,16 +9,11 @@
 
 import UIKit
 
-
 class OutputController: UIViewController, OutputInterface {
-    
     
     @IBOutlet weak var displayView: UILabel!
     
-    
-    
     func output() {
-        
     }
     
     var mainVC: OutputInterface? = nil
