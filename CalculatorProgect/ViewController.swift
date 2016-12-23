@@ -124,7 +124,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func buttonDidPress (operation: String) {
+    func buttonDidPress(operation: String){
         switch operation {
         case "1": digitPressed(operation: operation)
         case "2": digitPressed(operation: operation)
