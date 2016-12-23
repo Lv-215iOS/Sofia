@@ -43,5 +43,5 @@ protocol InputInterface {
 }
 
 protocol OutputInterface {
-    func output()
+    func outputDisplayText(_: String)
 }

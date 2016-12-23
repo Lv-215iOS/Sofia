@@ -13,8 +13,12 @@ class OutputController: UIViewController, OutputInterface {
     
     @IBOutlet weak var displayView: UILabel!
     
-    func output() {
+    func outputDisplayText(_ value: String) {
+        displayView.text = value
+    }
+    func displayTextValue() -> String {
+    return displayView.text ?? ""
     }
     
-    var mainVC: OutputInterface? = nil
+    //var mainVC: OutputInterface? = nil
 }

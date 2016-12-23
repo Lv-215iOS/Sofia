@@ -19,10 +19,10 @@ class ViewController: UIViewController {
     
     private var currentInput: Double {     //transforms string format into Double
         get {
-            return Double((self.outputController?.displayView.text!)!)!
+            return Double(textValue())!
         }
         set {
-            self.outputController?.displayView.text = "\(newValue)"
+            outputText(value:"\(newValue)")
             typingInProcess = false
         }
     }
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
             outputController = segue.destination as? OutputController                //swift casting
             //outputController?.mainVC = self
         } else if segue.identifier == "InputControllerEmbedSegue"{
-            inputController = segue.destination as?InputController
+            inputController = segue.destination as? InputController
             inputController?.buttonDidPress = { [ unowned self ] operation in  //callback func from inputController that catches button.title string
                 self.buttonDidPress(operation: operation)
             }
@@ -42,12 +42,12 @@ class ViewController: UIViewController {
     func digitPressed(operation : String) {
         if  typingInProcess {
             
-            if (self.outputController?.displayView.text?.characters.count)! < 16 {   //will not display more than 16 charachters
-                self.outputController?.displayView.text! = (self.outputController?.displayView.text!)! + operation
+            if (textValue().characters.count) < 16 {   //will not display more than 16 charachters
+                outputText(value: textValue() + operation)
                 //adds newly pressed digit to the previous one
             }
         } else {
-            self.outputController?.displayView.text = operation
+            outputText(value: operation)
         }
             switch operation {
             case "π": currentInput = M_PI
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         brain.brainCurrentInput = currentInput
         
         brain.result = { (resultValue, error)->() in
-            self.outputController?.displayView.text = String(describing: resultValue!) //shows result of the unary operation on display
+            self.outputText(value: String(describing: resultValue!)) //shows result of the unary operation on display
         }
         
         switch operation {           //connects symbol with unary func and enum of unary operations
@@ -90,7 +90,7 @@ class ViewController: UIViewController {
     
     func equalsButtonPressed(operation : String) {
         brain.result = { (resultValue, error)->() in
-            self.outputController?.displayView.text = String(describing: resultValue!)        //displays result
+            self.outputText(value: String(describing: resultValue!))       //displays result
         }
         if brain.operandOne != nil && brain.operandTwo != nil { //clearing operands in order to perform additional operations
             brain.operandOne = brain.resultValue
@@ -105,7 +105,7 @@ class ViewController: UIViewController {
         brain.operandOne = nil
         brain.operandTwo = nil
         currentInput = 0
-        self.outputController?.displayView.text = "0"
+        outputText(value: "0")
         typingInProcess = false
         brain.resultValue = 0
         brain.operationSymbol = nil
@@ -113,12 +113,12 @@ class ViewController: UIViewController {
     
     func dotButtonPressed(operation: String){
         if !dotIsPlaced && typingInProcess {
-            self.outputController?.displayView.text = (self.outputController?.displayView.text)! + "."
+            outputText(value: textValue() + ".")
             dotIsPlaced = true
         } else if !dotIsPlaced && !typingInProcess {
             brain.operandOne = nil
             brain.operandTwo = nil
-            self.outputController?.displayView.text = "0."
+            outputText(value: "0.")
             typingInProcess = true
             dotIsPlaced = true
         }
@@ -159,5 +159,13 @@ class ViewController: UIViewController {
         default: break
         }
     }
+    
+    func outputText(value: String) {
+    self.outputController?.outputDisplayText(value)
+    }
+    func textValue() -> String {
+    return self.outputController?.displayTextValue() ?? ""
+    }
+    
 }
 
