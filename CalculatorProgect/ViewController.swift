@@ -12,12 +12,12 @@ class ViewController: UIViewController {
     
     private var typingInProcess = false
     private var dotIsPlaced = false
-    private var brain: CalculatorBrain = CalculatorBrain()          //to communicate with CalcBrain
+    private var brain: CalculatorBrain = CalculatorBrain()//to communicate with CalcBrain
     
     var outputController: OutputController? = nil
     var inputController: InputController? = nil
     
-    private var currentInput: Double {     //transforms string format into Double
+    private var currentInput: Double {//transforms string format into Double
         get {
             return Double(textValue())!
         }
@@ -29,11 +29,11 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OutputControllerEmbedSegue" {
-            outputController = segue.destination as? OutputController                //swift casting
+            outputController = segue.destination as? OutputController//swift casting
             //outputController?.mainVC = self
         } else if segue.identifier == "InputControllerEmbedSegue"{
             inputController = segue.destination as? InputController
-            inputController?.buttonDidPress = { [ unowned self ] operation in  //callback func from inputController that catches button.title string
+            inputController?.buttonDidPress = { [ unowned self ] operation in//callback func from inputController that catches button.title string
                 self.buttonDidPress(operation: operation)
             }
         }
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     func digitPressed(operation : String) {
         if  typingInProcess {
             
-            if (textValue().characters.count) < 16 {   //will not display more than 16 charachters
+            if (textValue().characters.count) < 16 {//will not display more than 16 charachters
                 outputText(value: textValue() + operation)
                 //adds newly pressed digit to the previous one
             }
@@ -60,8 +60,8 @@ class ViewController: UIViewController {
     func binaryOperationButtonPressed(operation : String) {
         typingInProcess = true
         if typingInProcess {
-            brain.digit(value: currentInput)                    //sets operand
-            brain.saveBinaryOperationSymbol(symbol: operation)           //saves binary oper symbol
+            brain.digit(value: currentInput)//sets operand
+            brain.saveBinaryOperationSymbol(symbol: operation)//saves binary oper symbol
             typingInProcess = false
         }
         
@@ -72,10 +72,10 @@ class ViewController: UIViewController {
         brain.brainCurrentInput = currentInput
         
         brain.result = { (resultValue, error)->() in
-            self.outputText(value: String(describing: resultValue!)) //shows result of the unary operation on display
+            self.outputText(value: String(describing: resultValue!))//shows result of the unary operation on display
         }
         
-        switch operation {           //connects symbol with unary func and enum of unary operations
+        switch operation {//connects symbol with unary func and enum of unary operations
         case "√": brain.unary(operation: UnaryOperation.SquareRoot)
         case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
         case "cos": brain.unary(operation: UnaryOperation.Cos)
@@ -90,14 +90,14 @@ class ViewController: UIViewController {
     
     func equalsButtonPressed(operation : String) {
         brain.result = { (resultValue, error)->() in
-            self.outputText(value: String(describing: resultValue!))       //displays result
+            self.outputText(value: String(describing: resultValue!))//displays result
         }
-        if brain.operandOne != nil && brain.operandTwo != nil { //clearing operands in order to perform additional operations
+        if brain.operandOne != nil && brain.operandTwo != nil {//clearing operands in order to perform additional operations
             brain.operandOne = brain.resultValue
             brain.operandTwo = nil
         }
-        brain.digit(value: currentInput) //saves second operand
-        brain.utility(operation: UtilityOperation.Equal)        //connected to func utility in brain
+        brain.digit(value: currentInput)//saves second operand
+        brain.utility(operation: UtilityOperation.Equal)//connected to func utility in brain
         typingInProcess = false
     }
     

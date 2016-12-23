@@ -13,10 +13,10 @@ class CalculatorBrain: CalcBrainInterface {
     var operandOne: Double?
     var operandTwo: Double?
     var resultValue: Double?
-    var brainCurrentInput: Double?                       //in order to perform unary operation
+    var brainCurrentInput: Double?//in order to perform unary operation
     var operationSymbol: BinaryOperation?
     
-    func digit(value: Double) {                          //sets operands
+    func digit(value: Double) {//sets operands
         if operandOne == nil {
             operandOne = value
         } else if operandTwo == nil {
@@ -24,7 +24,7 @@ class CalculatorBrain: CalcBrainInterface {
         }
     }
     
-    func saveBinaryOperationSymbol(symbol: String){ //identifies case from enum as string of the symbol pressed
+    func saveBinaryOperationSymbol(symbol: String){//identifies case from enum as string of the symbol pressed
         switch symbol {
         case "+": operationSymbol = BinaryOperation.Plus
         case "-": operationSymbol = BinaryOperation.Minus
@@ -35,7 +35,7 @@ class CalculatorBrain: CalcBrainInterface {
     }
     
     func binary(operation: BinaryOperation) {
-        switch operation { //checks which button is pressed using symbol that was remembered in saveBinaryOperationSymbol
+        switch operation {//checks which button is pressed using symbol that was remembered in saveBinaryOperationSymbol
         case .Plus:
             resultValue = (operandOne ?? 0.0) + (operandTwo ?? 0.0)
             result?(resultValue, nil)
@@ -51,7 +51,7 @@ class CalculatorBrain: CalcBrainInterface {
         }
     }
     
-    func unary(operation: UnaryOperation) { //persorms unary operation
+    func unary(operation: UnaryOperation) {//persorms unary operation
         switch operation {
         case .SquareRoot:
             resultValue = sqrt(brainCurrentInput!)

@@ -35,7 +35,7 @@ protocol CalcBrainInterface {
     func binary(operation: BinaryOperation)
     func unary(operation: UnaryOperation)
     func utility(operation: UtilityOperation)
-    var result: ((Double?, Error?)->())? {get set}   //is being called ONLY if equal pressed
+    var result: ((Double?, Error?)->())? {get set}//is being called ONLY if equal pressed
 }
 
 protocol InputInterface {
