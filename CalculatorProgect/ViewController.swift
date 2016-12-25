@@ -58,18 +58,27 @@ class ViewController: UIViewController {
     }
     
     func binaryOperationButtonPressed(operation : String) {
-        if typingInProcess && brain.operandTwo == nil {
+        
+        if typingInProcess == true && brain.operandOne == nil {
+            
             brain.digit(value: currentInput)//sets operand
             brain.saveBinaryOperationSymbol(symbol: operation)//saves binary oper symbol
             typingInProcess = false
-        } else if typingInProcess == false && brain.operandTwo != nil {
-            brain.operandTwo = nil
-            brain.operandOne = brain.resultValue
             
+        } else if typingInProcess == true && brain.operandOne != nil {
+            
+            brain.digit(value: currentInput)//sets operand
+            brain.result = { (resultValue, error)->() in
+                self.outputText(value: String(describing: resultValue!))//displays result
+            }
+            brain.utility(operation: UtilityOperation.Equal)//connected to func utility in brain
+            brain.operandOne = brain.resultValue
+            brain.operandTwo = nil
             brain.saveBinaryOperationSymbol(symbol: operation)//saves binary oper symbol
             typingInProcess = false
+        } else {
+            brain.saveBinaryOperationSymbol(symbol: operation)//resets binary oper symbol
         }
-        
     }
     
     func unaryOperationButtonPressed(operation : String) {
@@ -97,6 +106,7 @@ class ViewController: UIViewController {
         brain.result = { (resultValue, error)->() in
             self.outputText(value: String(describing: resultValue!))//displays result
         }
+        
         if brain.operandOne != nil && brain.operandTwo != nil {//clearing operands in order to perform additional operations
             brain.operandOne = brain.resultValue
             
