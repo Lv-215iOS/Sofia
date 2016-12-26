@@ -27,6 +27,8 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK: Segue
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OutputControllerEmbedSegue" {
             outputController = segue.destination as? OutputController//swift casting
@@ -38,23 +40,29 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK: Digit Pressed
+    
     func digitPressed(operation : String) {
         if  typingInProcess {
-            
             if (textValue().characters.count) < 16 {//will not display more than 16 charachters
-                outputText(value: textValue() + operation)
-                //adds newly pressed digit to the previous one
+                if textValue() == "0" {//tracks 0 and replaces it with next symbol pressed
+                    outputText(value: operation)
+                }else {
+                    outputText(value: textValue() + operation)//adds newly pressed digit to the previous one
+                }
             }
         } else {
             outputText(value: operation)
         }
-            switch operation {
-            case "π": currentInput = M_PI
-            case "e": currentInput = M_E
-            default: break
+        switch operation {
+        case "π": currentInput = M_PI
+        case "e": currentInput = M_E
+        default: break
         }
         typingInProcess = true
     }
+    
+    //MARK: Binary operation pressed
     
     func binaryOperationButtonPressed(operation : String) {
         
@@ -80,6 +88,8 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK: Unary operation pressed
+    
     func unaryOperationButtonPressed(operation : String) {
         
         brain.brainCurrentInput = currentInput
@@ -100,6 +110,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK: Utility operation pressed
     
     func equalsButtonPressed(operation : String) {
         brain.result = { (resultValue, error)->() in
@@ -112,7 +123,7 @@ class ViewController: UIViewController {
         
         brain.digit(value: currentInput)//saves second operand
         brain.utility(operation: UtilityOperation.Equal)//connected to func utility in brain
-        typingInProcess = false
+        //typingInProcess = false
     }
     
     func clearButtonPressed(operation : String) {
@@ -137,6 +148,8 @@ class ViewController: UIViewController {
             dotIsPlaced = true
         }
     }
+    
+    //MARK: Additional functions
     
     func buttonDidPress(operation: String){
         switch operation {
@@ -175,10 +188,10 @@ class ViewController: UIViewController {
     }
     
     func outputText(value: String) {
-    self.outputController?.outputDisplayText(value)
+        self.outputController?.outputDisplayText(value)
     }
     func textValue() -> String {
-    return self.outputController?.displayTextValue() ?? ""
+        return self.outputController?.displayTextValue() ?? ""
     }
     
 }
