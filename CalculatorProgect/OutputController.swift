@@ -17,8 +17,6 @@ class OutputController: UIViewController, OutputInterface {
         displayView.text = value
     }
     func displayTextValue() -> String {
-    return displayView.text ?? ""
+        return displayView.text ?? ""
     }
-    
-    //var mainVC: OutputInterface? = nil
 }

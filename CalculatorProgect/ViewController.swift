@@ -30,7 +30,6 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OutputControllerEmbedSegue" {
             outputController = segue.destination as? OutputController//swift casting
-            //outputController?.mainVC = self
         } else if segue.identifier == "InputControllerEmbedSegue"{
             inputController = segue.destination as? InputController
             inputController?.buttonDidPress = { [ unowned self ] operation in//callback func from inputController that catches button.title string
@@ -65,13 +64,13 @@ class ViewController: UIViewController {
             brain.saveBinaryOperationSymbol(symbol: operation)//saves binary oper symbol
             typingInProcess = false
             
-        } else if typingInProcess == true && brain.operandOne != nil {
+        } else if typingInProcess == true && brain.operandOne != nil {//for multiple operations and operations after "="
             
             brain.digit(value: currentInput)//sets operand
             brain.result = { (resultValue, error)->() in
                 self.outputText(value: String(describing: resultValue!))//displays result
             }
-            brain.utility(operation: UtilityOperation.Equal)//connected to func utility in brain
+            brain.utility(operation: UtilityOperation.Equal)//connected to func utility in brain - counts
             brain.operandOne = brain.resultValue
             brain.operandTwo = nil
             brain.saveBinaryOperationSymbol(symbol: operation)//saves binary oper symbol
@@ -107,9 +106,8 @@ class ViewController: UIViewController {
             self.outputText(value: String(describing: resultValue!))//displays result
         }
         
-        if brain.operandOne != nil && brain.operandTwo != nil {//clearing operands in order to perform additional operations
-            brain.operandOne = brain.resultValue
-            
+        if brain.operandOne != nil && brain.operandTwo != nil {
+            brain.operandOne = brain.resultValue//saves result as the 1st operand. 2nd remains the same and is operated after multiple "="
         }
         
         brain.digit(value: currentInput)//saves second operand

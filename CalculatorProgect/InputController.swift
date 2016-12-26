@@ -34,7 +34,7 @@ class InputController: UIViewController, InputInterface {
     @IBAction func clearAction(_ sender: UIButton) {
         buttonDidPress?(sender.currentTitle!)
     }
-
+    
     @IBAction func dotAction(_ sender: UIButton) {
         buttonDidPress?(sender.currentTitle!)
     }

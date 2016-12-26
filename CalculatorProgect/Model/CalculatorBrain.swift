@@ -58,10 +58,10 @@ class CalculatorBrain: CalcBrainInterface {
             result?(resultValue, nil)
             
         case .PlusMinus: if brainCurrentInput == 0 {
-                resultValue = 0
-            } else {
-                resultValue = -brainCurrentInput!
-                result?(resultValue, nil)
+            resultValue = 0
+        } else {
+            resultValue = -brainCurrentInput!
+            result?(resultValue, nil)
             }
         case .Cos:
             resultValue = cos(brainCurrentInput!)
