@@ -101,7 +101,7 @@ class ViewController: UIViewController {
         brain.result = { (resultValue, error)->() in
             self.outputText(value: String(describing: resultValue!))//shows result of the unary operation on display
         }
-        
+
         switch operation {//connects symbol with unary func and enum of unary operations
         case "√": brain.unary(operation: UnaryOperation.SquareRoot)
         case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
@@ -111,6 +111,14 @@ class ViewController: UIViewController {
         case "%": brain.unary(operation: UnaryOperation.Percent)
         default:
             break
+        }
+        
+        if brain.resultValue != nil {//for correct performance of unary operation before "="
+            
+        brain.operandTwo = nil
+        brain.brainCurrentInput = nil
+        brain.resultValue = nil
+            
         }
     }
     
@@ -127,7 +135,10 @@ class ViewController: UIViewController {
         
         brain.digit(value: currentInput)//saves second operand
         brain.utility(operation: UtilityOperation.Equal)//connected to func utility in brain
-        //typingInProcess = false
+        
+        //TODO: operOne has to be deleted if we use UNARY after =
+        //brain.operandOne = nil  //for correct performance of unary operation before "="
+        
     }
     
     func clearButtonPressed(operation : String) {
