@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     
     private var typingInProcess = false
-    private var dotIsPlaced = false
     private var brain: CalculatorBrain = CalculatorBrain()//to communicate with CalcBrain
     
     var outputController: OutputController? = nil
@@ -137,16 +136,33 @@ class ViewController: UIViewController {
     }
     
     func dotButtonPressed(operation: String){
-        if !dotIsPlaced && typingInProcess {
-            outputText(value: textValue() + ".")
-            dotIsPlaced = true
-        } else if !dotIsPlaced && !typingInProcess {
+        
+        let dotIsPlaced = textValue().characters.contains(".")
+        
+        //TODO: DOT IS NOT WORKING PROPERLY
+        if !dotIsPlaced {
+            if typingInProcess {
+                outputText(value: textValue() + ".")
+            } else {
+                brain.operandTwo = nil
+                outputText(value: "0.")
+                typingInProcess = true
+            }
+        } else if !typingInProcess {
             brain.operandOne = nil
+            brain.resultValue = nil
+            
             brain.operandTwo = nil
             outputText(value: "0.")
             typingInProcess = true
-            dotIsPlaced = true
+            
         }
+//        if brain.resultValue != nil {
+//            brain.operandOne = nil
+//            brain.operandTwo = nil
+//            brain.resultValue = nil
+//            outputText(value: "0.")
+//        }
     }
     
     //MARK: Additional functions
