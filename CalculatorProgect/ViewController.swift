@@ -80,6 +80,11 @@ class ViewController: UIViewController {
             brain.utility(operation: UtilityOperation.Equal)//connected to func utility in brain - counts
             brain.operandOne = brain.resultValue
             brain.operandTwo = nil
+            
+            
+            brain.resultValue = nil
+            
+            
             brain.saveBinaryOperationSymbol(symbol: operation)//saves binary oper symbol
             typingInProcess = false
         } else {
@@ -131,7 +136,7 @@ class ViewController: UIViewController {
         currentInput = 0
         outputText(value: "0")
         typingInProcess = false
-        brain.resultValue = 0
+        brain.resultValue = nil
         brain.operationSymbol = nil
     }
     
@@ -139,7 +144,6 @@ class ViewController: UIViewController {
         
         let dotIsPlaced = textValue().characters.contains(".")
         
-        //TODO: DOT IS NOT WORKING PROPERLY
         if !dotIsPlaced {
             if typingInProcess {
                 outputText(value: textValue() + ".")
@@ -148,21 +152,18 @@ class ViewController: UIViewController {
                 outputText(value: "0.")
                 typingInProcess = true
             }
-        } else if !typingInProcess {
-            brain.operandOne = nil
-            brain.resultValue = nil
-            
+        } else if !typingInProcess {//after binary and dot is already placed; after second binary func
             brain.operandTwo = nil
             outputText(value: "0.")
             typingInProcess = true
             
         }
-//        if brain.resultValue != nil {
-//            brain.operandOne = nil
-//            brain.operandTwo = nil
-//            brain.resultValue = nil
-//            outputText(value: "0.")
-//        }
+        if brain.resultValue != nil && typingInProcess == true {//works after "="
+            brain.operandOne = nil
+            brain.operandTwo = nil
+            brain.resultValue = nil
+            outputText(value: "0.")
+        }
     }
     
     //MARK: Additional functions
