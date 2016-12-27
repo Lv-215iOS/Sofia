@@ -98,28 +98,95 @@ class ViewController: UIViewController {
         
         brain.brainCurrentInput = currentInput
         
-        brain.result = { (resultValue, error)->() in
-            self.outputText(value: String(describing: resultValue!))//shows result of the unary operation on display
-        }
+        if brain.operandOne == nil && brain.operandTwo == nil {
+            
+            brain.result = { (resultValue, error)->() in
+                self.outputText(value: String(describing: resultValue!))//shows result of the unary operation on display
+            }
+            
+            switch operation {//connects symbol with unary func and enum of unary operations
+            case "√": brain.unary(operation: UnaryOperation.SquareRoot)
+            case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
+            case "cos": brain.unary(operation: UnaryOperation.Cos)
+            case "sin": brain.unary(operation: UnaryOperation.Sin)
+            case "tg": brain.unary(operation: UnaryOperation.Tan)
+            case "%": brain.unary(operation: UnaryOperation.Percent)
+            default:
+                break
+            }
+            
+            brain.brainCurrentInput = nil
+            brain.resultValue = nil
+            
+        } else if brain.operandOne != nil && brain.operandTwo == nil {
+            
+            
+            brain.result = { (resultValue, error)->() in
+                self.outputText(value: String(describing: resultValue!))//shows result of the unary operation on display
+            }
+            
+            switch operation {//connects symbol with unary func and enum of unary operations
+            case "√": brain.unary(operation: UnaryOperation.SquareRoot)
+            case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
+            case "cos": brain.unary(operation: UnaryOperation.Cos)
+            case "sin": brain.unary(operation: UnaryOperation.Sin)
+            case "tg": brain.unary(operation: UnaryOperation.Tan)
+            case "%": brain.unary(operation: UnaryOperation.Percent)
+            default:
+                break
+            }
+            
+            brain.brainCurrentInput = nil
+            brain.resultValue = nil
+            
+        } else if brain.resultValue != nil && brain.operandOne != nil {
+            
+            brain.result = { (resultValue, error)->() in
+                self.outputText(value: String(describing: resultValue!))//shows result of the unary operation on display
+            }
+            
+            switch operation {//connects symbol with unary func and enum of unary operations
+            case "√": brain.unary(operation: UnaryOperation.SquareRoot)
+            case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
+            case "cos": brain.unary(operation: UnaryOperation.Cos)
+            case "sin": brain.unary(operation: UnaryOperation.Sin)
+            case "tg": brain.unary(operation: UnaryOperation.Tan)
+            case "%": brain.unary(operation: UnaryOperation.Percent)
+            default:
+                break
+            }
 
-        switch operation {//connects symbol with unary func and enum of unary operations
-        case "√": brain.unary(operation: UnaryOperation.SquareRoot)
-        case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
-        case "cos": brain.unary(operation: UnaryOperation.Cos)
-        case "sin": brain.unary(operation: UnaryOperation.Sin)
-        case "tg": brain.unary(operation: UnaryOperation.Tan)
-        case "%": brain.unary(operation: UnaryOperation.Percent)
-        default:
-            break
+            brain.operandOne = nil
+            brain.operandTwo = nil
+            brain.brainCurrentInput = nil
+            brain.resultValue = nil
+            
         }
         
-        if brain.resultValue != nil {//for correct performance of unary operation before "="
-            
-        brain.operandTwo = nil
-        brain.brainCurrentInput = nil
-        brain.resultValue = nil
-            
-        }
+        //        brain.brainCurrentInput = currentInput
+        //        brain.result = { (resultValue, error)->() in
+        //            self.outputText(value: String(describing: resultValue!))//shows result of the unary operation on display
+        //        }
+        //
+        //        switch operation {//connects symbol with unary func and enum of unary operations
+        //        case "√": brain.unary(operation: UnaryOperation.SquareRoot)
+        //        case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
+        //        case "cos": brain.unary(operation: UnaryOperation.Cos)
+        //        case "sin": brain.unary(operation: UnaryOperation.Sin)
+        //        case "tg": brain.unary(operation: UnaryOperation.Tan)
+        //        case "%": brain.unary(operation: UnaryOperation.Percent)
+        //        default:
+        //            break
+        //        }
+        //
+        //        if brain.resultValue != nil {//for correct performance of unary operation before "="
+        //
+        //        brain.operandTwo = nil
+        //        brain.brainCurrentInput = nil
+        //        brain.resultValue = nil
+        //
+        //        }
+        
     }
     
     //MARK: Utility operation pressed
@@ -135,10 +202,6 @@ class ViewController: UIViewController {
         
         brain.digit(value: currentInput)//saves second operand
         brain.utility(operation: UtilityOperation.Equal)//connected to func utility in brain
-        
-        //TODO: operOne has to be deleted if we use UNARY after =
-        //brain.operandOne = nil  //for correct performance of unary operation before "="
-        
     }
     
     func clearButtonPressed(operation : String) {
