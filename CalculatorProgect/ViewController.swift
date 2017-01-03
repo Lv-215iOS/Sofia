@@ -118,6 +118,7 @@ class ViewController: UIViewController {
             brain.brainCurrentInput = nil
             brain.resultValue = nil
             
+            
         } else if brain.operandOne != nil && brain.operandTwo == nil {
             
             
@@ -162,40 +163,21 @@ class ViewController: UIViewController {
             brain.resultValue = nil
             
         }
-        
-        //        brain.brainCurrentInput = currentInput
-        //        brain.result = { (resultValue, error)->() in
-        //            self.outputText(value: String(describing: resultValue!))//shows result of the unary operation on display
-        //        }
-        //
-        //        switch operation {//connects symbol with unary func and enum of unary operations
-        //        case "√": brain.unary(operation: UnaryOperation.SquareRoot)
-        //        case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
-        //        case "cos": brain.unary(operation: UnaryOperation.Cos)
-        //        case "sin": brain.unary(operation: UnaryOperation.Sin)
-        //        case "tg": brain.unary(operation: UnaryOperation.Tan)
-        //        case "%": brain.unary(operation: UnaryOperation.Percent)
-        //        default:
-        //            break
-        //        }
-        //
-        //        if brain.resultValue != nil {//for correct performance of unary operation before "="
-        //
-        //        brain.operandTwo = nil
-        //        brain.brainCurrentInput = nil
-        //        brain.resultValue = nil
-        //
-        //        }
-        
     }
     
     //MARK: Utility operation pressed
     
     func equalsButtonPressed(operation : String) {
         brain.result = { (resultValue, error)->() in
-            self.outputText(value: String(describing: resultValue!))//displays result
+            if resultValue != nil {
+                if (resultValue?.isNaN)! || (resultValue?.isInfinite)! {//checks for error
+                self.outputText(value: "Error")
+                } else {
+                    self.outputText(value: String(describing: resultValue!))//displays result
+
+                }
+            }
         }
-        
         if brain.operandOne != nil && brain.operandTwo != nil {
             brain.operandOne = brain.resultValue//saves result as the 1st operand. 2nd remains the same and is operated after multiple "="
         }
