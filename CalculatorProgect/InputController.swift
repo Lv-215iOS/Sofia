@@ -15,10 +15,9 @@ class InputController: UIViewController, InputInterface {
     
     var audioPlayerForButtons = AVAudioPlayer()
     var audioPlayerForBackgroundMusic = AVAudioPlayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         do {
             audioPlayerForButtons = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "click_one", ofType: "wav")!))
             audioPlayerForButtons.prepareToPlay()
@@ -26,9 +25,7 @@ class InputController: UIViewController, InputInterface {
         catch {
         print(error)
         }
-        
         backgroundMusic()
-        
     }
     
     func backgroundMusic() {

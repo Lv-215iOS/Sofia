@@ -14,6 +14,10 @@ class OutputController: UIViewController, OutputInterface {
     @IBOutlet weak var displayView: UILabel!
     
     func outputDisplayText(_ value: String) {
+        
+//        let formatted = String(format: "%g", Float(value)!)
+//        displayView.text = formatted
+        
         displayView.text = value
     }
     func displayTextValue() -> String {

@@ -66,13 +66,10 @@ class ViewController: UIViewController {
     func binaryOperationButtonPressed(operation : String) {
         
         if typingInProcess == true && brain.operandOne == nil {
-            
             brain.digit(value: currentInput)//sets operand
             brain.saveBinaryOperationSymbol(symbol: operation)//saves binary oper symbol
             typingInProcess = false
-            
         } else if typingInProcess == true && brain.operandOne != nil {//for multiple operations and operations after "="
-            
             brain.digit(value: currentInput)//sets operand
             brain.result = { (resultValue, error)->() in
                 self.outputText(value: String(describing: resultValue!))//displays result
@@ -80,11 +77,7 @@ class ViewController: UIViewController {
             brain.utility(operation: UtilityOperation.Equal)//connected to func utility in brain - counts
             brain.operandOne = brain.resultValue
             brain.operandTwo = nil
-            
-            
             brain.resultValue = nil
-            
-            
             brain.saveBinaryOperationSymbol(symbol: operation)//saves binary oper symbol
             typingInProcess = false
         } else {
@@ -94,74 +87,32 @@ class ViewController: UIViewController {
     
     //MARK: Unary operation pressed
     
+    func unaryOperationProcessing(operation: String) {
+        brain.result = { (resultValue, error)->() in
+            self.outputText(value: String(describing: resultValue!))//shows result of the unary operation on display
+        }
+        switch operation {//connects symbol with unary func and enum of unary operations
+        case "√": brain.unary(operation: UnaryOperation.SquareRoot)
+        case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
+        case "cos": brain.unary(operation: UnaryOperation.Cos)
+        case "sin": brain.unary(operation: UnaryOperation.Sin)
+        case "tg": brain.unary(operation: UnaryOperation.Tan)
+        case "%": brain.unary(operation: UnaryOperation.Percent)
+        default:
+            break
+        }
+        brain.brainCurrentInput = nil
+        brain.resultValue = nil
+    }
+    
     func unaryOperationButtonPressed(operation : String) {
-        
         brain.brainCurrentInput = currentInput
-        
-        if brain.operandOne == nil && brain.operandTwo == nil {
-            
-            brain.result = { (resultValue, error)->() in
-                self.outputText(value: String(describing: resultValue!))//shows result of the unary operation on display
-            }
-            
-            switch operation {//connects symbol with unary func and enum of unary operations
-            case "√": brain.unary(operation: UnaryOperation.SquareRoot)
-            case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
-            case "cos": brain.unary(operation: UnaryOperation.Cos)
-            case "sin": brain.unary(operation: UnaryOperation.Sin)
-            case "tg": brain.unary(operation: UnaryOperation.Tan)
-            case "%": brain.unary(operation: UnaryOperation.Percent)
-            default:
-                break
-            }
-            
-            brain.brainCurrentInput = nil
-            brain.resultValue = nil
-            
-            
-        } else if brain.operandOne != nil && brain.operandTwo == nil {
-            
-            
-            brain.result = { (resultValue, error)->() in
-                self.outputText(value: String(describing: resultValue!))//shows result of the unary operation on display
-            }
-            
-            switch operation {//connects symbol with unary func and enum of unary operations
-            case "√": brain.unary(operation: UnaryOperation.SquareRoot)
-            case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
-            case "cos": brain.unary(operation: UnaryOperation.Cos)
-            case "sin": brain.unary(operation: UnaryOperation.Sin)
-            case "tg": brain.unary(operation: UnaryOperation.Tan)
-            case "%": brain.unary(operation: UnaryOperation.Percent)
-            default:
-                break
-            }
-            
-            brain.brainCurrentInput = nil
-            brain.resultValue = nil
-            
+        if brain.operandTwo == nil {
+            unaryOperationProcessing(operation: operation)
         } else if brain.resultValue != nil && brain.operandOne != nil {
-            
-            brain.result = { (resultValue, error)->() in
-                self.outputText(value: String(describing: resultValue!))//shows result of the unary operation on display
-            }
-            
-            switch operation {//connects symbol with unary func and enum of unary operations
-            case "√": brain.unary(operation: UnaryOperation.SquareRoot)
-            case "+/-": brain.unary(operation: UnaryOperation.PlusMinus)
-            case "cos": brain.unary(operation: UnaryOperation.Cos)
-            case "sin": brain.unary(operation: UnaryOperation.Sin)
-            case "tg": brain.unary(operation: UnaryOperation.Tan)
-            case "%": brain.unary(operation: UnaryOperation.Percent)
-            default:
-                break
-            }
-
+            unaryOperationProcessing(operation: operation)
             brain.operandOne = nil
             brain.operandTwo = nil
-            brain.brainCurrentInput = nil
-            brain.resultValue = nil
-            
         }
     }
     
@@ -171,17 +122,16 @@ class ViewController: UIViewController {
         brain.result = { (resultValue, error)->() in
             if resultValue != nil {
                 if (resultValue?.isNaN)! || (resultValue?.isInfinite)! {//checks for error
-                self.outputText(value: "Error")
+                    self.outputText(value: "Error")
                 } else {
                     self.outputText(value: String(describing: resultValue!))//displays result
-
+                    
                 }
             }
         }
         if brain.operandOne != nil && brain.operandTwo != nil {
             brain.operandOne = brain.resultValue//saves result as the 1st operand. 2nd remains the same and is operated after multiple "="
         }
-        
         brain.digit(value: currentInput)//saves second operand
         brain.utility(operation: UtilityOperation.Equal)//connected to func utility in brain
     }
@@ -212,7 +162,6 @@ class ViewController: UIViewController {
             brain.operandTwo = nil
             outputText(value: "0.")
             typingInProcess = true
-            
         }
         if brain.resultValue != nil && typingInProcess == true {//works after "="
             brain.operandOne = nil
@@ -265,6 +214,20 @@ class ViewController: UIViewController {
     }
     func textValue() -> String {
         return self.outputController?.displayTextValue() ?? ""
+    }
+
+//    var musicOnImage: UIImage = UIImage(named: "musicOn")!
+//    var musicOffImage: UIImage = UIImage(named: "musicOff")!
+    
+    
+    @IBAction func musicStateAction(_ sender: UIButton) {
+        if      (inputController?.audioPlayerForBackgroundMusic.isPlaying)! {
+            inputController?.audioPlayerForBackgroundMusic.stop()
+             sender.setBackgroundImage(UIImage(named: "musicOff"), for: .normal)
+        } else {
+            inputController?.audioPlayerForBackgroundMusic.play()
+            sender.setBackgroundImage(UIImage(named: "musicOn"), for: .normal)
+        }
     }
     
 }
