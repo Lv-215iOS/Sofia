@@ -19,6 +19,7 @@
 		2582D5331DF81776000AB2DB /* CalculatorProgectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582D5321DF81776000AB2DB /* CalculatorProgectUITests.swift */; };
 		51C564E71DFC3F600056FE9F /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C564E61DFC3F600056FE9F /* CalculatorBrain.swift */; };
 		51FDB5D71E1BF69600DD5D46 /* click_one.wav in Resources */ = {isa = PBXBuildFile; fileRef = 51FDB5D61E1BF69600DD5D46 /* click_one.wav */; };
+		51FDB5DA1E1C00C600DD5D46 /* Marimba-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 51FDB5D91E1C00C600DD5D46 /* Marimba-music.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		2582D5341DF81776000AB2DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51C564E61DFC3F600056FE9F /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorBrain.swift; path = Model/CalculatorBrain.swift; sourceTree = "<group>"; };
 		51FDB5D61E1BF69600DD5D46 /* click_one.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click_one.wav; sourceTree = "<group>"; };
+		51FDB5D91E1C00C600DD5D46 /* Marimba-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Marimba-music.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		51FDB5D41E1BF65700DD5D46 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				51FDB5D81E1C00AE00DD5D46 /* Background Music */,
 				51FDB5D51E1BF67000DD5D46 /* Button Sounds */,
 				2582D51E1DF81776000AB2DB /* Info.plist */,
 			);
@@ -154,6 +157,14 @@
 				51FDB5D61E1BF69600DD5D46 /* click_one.wav */,
 			);
 			name = "Button Sounds";
+			sourceTree = "<group>";
+		};
+		51FDB5D81E1C00AE00DD5D46 /* Background Music */ = {
+			isa = PBXGroup;
+			children = (
+				51FDB5D91E1C00C600DD5D46 /* Marimba-music.mp3 */,
+			);
+			name = "Background Music";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +279,7 @@
 				2582D51D1DF81776000AB2DB /* LaunchScreen.storyboard in Resources */,
 				2582D51A1DF81776000AB2DB /* Assets.xcassets in Resources */,
 				2582D5181DF81776000AB2DB /* Main.storyboard in Resources */,
+				51FDB5DA1E1C00C600DD5D46 /* Marimba-music.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

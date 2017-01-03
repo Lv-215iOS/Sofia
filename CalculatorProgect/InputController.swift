@@ -13,48 +13,64 @@ class InputController: UIViewController, InputInterface {
     
     var buttonDidPress: ((_ operation: String)->())? = nil
     
-    var audioPlayer = AVAudioPlayer()
-    
+    var audioPlayerForButtons = AVAudioPlayer()
+    var audioPlayerForBackgroundMusic = AVAudioPlayer()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "click_one", ofType: "wav")!))
-            audioPlayer.prepareToPlay()
+            audioPlayerForButtons = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "click_one", ofType: "wav")!))
+            audioPlayerForButtons.prepareToPlay()
         }
         catch {
         print(error)
+        }
+        
+        backgroundMusic()
+        
+    }
+    
+    func backgroundMusic() {
+        do {
+            audioPlayerForBackgroundMusic = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Marimba-music", ofType: "mp3")!))
+            audioPlayerForBackgroundMusic.prepareToPlay()
+            audioPlayerForBackgroundMusic.play()
+        }
+        catch {
+            print(error)
         }
     }
     
     //MARK: - Actions
     
     @IBAction func touchDigitAction(_ sender: UIButton) {
-        audioPlayer.play()
+        audioPlayerForButtons.play()
         buttonDidPress?(sender.currentTitle!)
     }
     
     @IBAction func binaryOperationAction(_ sender: UIButton) {
-        audioPlayer.play()
+        audioPlayerForButtons.play()
         buttonDidPress?(sender.currentTitle!)
     }
     
     @IBAction func unaryOperationAction(_ sender: UIButton) {
-        audioPlayer.play()
+        audioPlayerForButtons.play()
         buttonDidPress?(sender.currentTitle!)
     }
     
     @IBAction func equalsAction(_ sender: UIButton) {
-        audioPlayer.play()
+        audioPlayerForButtons.play()
         buttonDidPress?(sender.currentTitle!)
     }
     
     @IBAction func clearAction(_ sender: UIButton) {
-        audioPlayer.play()
+        audioPlayerForButtons.play()
         buttonDidPress?(sender.currentTitle!)
     }
     
     @IBAction func dotAction(_ sender: UIButton) {
-        audioPlayer.play()
+        audioPlayerForButtons.play()
         buttonDidPress?(sender.currentTitle!)
     }
 }
