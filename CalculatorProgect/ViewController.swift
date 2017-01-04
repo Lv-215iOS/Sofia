@@ -216,10 +216,6 @@ class ViewController: UIViewController {
         return self.outputController?.displayTextValue() ?? ""
     }
 
-//    var musicOnImage: UIImage = UIImage(named: "musicOn")!
-//    var musicOffImage: UIImage = UIImage(named: "musicOff")!
-    
-    
     @IBAction func musicStateAction(_ sender: UIButton) {
         if      (inputController?.audioPlayerForBackgroundMusic.isPlaying)! {
             inputController?.audioPlayerForBackgroundMusic.stop()
