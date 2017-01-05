@@ -26,9 +26,6 @@ class ViewController: UIViewController {
         }
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return false
-    }
     
     //MARK: Segue
     
@@ -237,5 +234,8 @@ class ViewController: UIViewController {
         }
     }
     
+    override var prefersStatusBarHidden: Bool {//makes status bar visible in landscape mode
+        return false
+    }
 }
 
