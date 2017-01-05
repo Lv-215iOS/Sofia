@@ -26,6 +26,10 @@ class ViewController: UIViewController {
         }
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
     //MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -89,7 +93,14 @@ class ViewController: UIViewController {
     
     func unaryOperationProcessing(operation: String) {
         brain.result = { (resultValue, error)->() in
-            self.outputText(value: String(describing: resultValue!))//shows result of the unary operation on display
+            if resultValue != nil {
+                if (resultValue?.isNaN)! || (resultValue?.isInfinite)! {//checks for error
+                    self.outputText(value: "Error")
+                } else {
+                    self.outputText(value: String(describing: resultValue!))//displays result
+                    
+                }
+            }
         }
         switch operation {//connects symbol with unary func and enum of unary operations
         case "√": brain.unary(operation: UnaryOperation.SquareRoot)
