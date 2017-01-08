@@ -50,7 +50,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6Nk-ca-S9t">
                         <rightBarButtonItems>
-                            <barButtonItem style="plain" id="Z7M-iE-7kz">
+                            <barButtonItem id="Z7M-iE-7kz">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xaD-la-sD9">
                                     <rect key="frame" x="316" y="2" width="43" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -60,7 +60,7 @@
                                     </connections>
                                 </button>
                             </barButtonItem>
-                            <barButtonItem style="plain" id="ZF6-cR-gES">
+                            <barButtonItem id="ZF6-cR-gES">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XDt-QN-HeJ">
                                     <rect key="frame" x="271" y="4" width="37" height="35"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -173,7 +173,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-OI-p0F">
                                                 <rect key="frame" x="74.5" y="0.0" width="71.5" height="102"/>
-                                                <color key="backgroundColor" red="0.61568627450980395" green="0.69411764705882351" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.33333333333333331" green="0.61960784313725492" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <state key="normal" title="9">
                                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
