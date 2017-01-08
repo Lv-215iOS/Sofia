@@ -40,11 +40,11 @@ class InputController: UIViewController, InputInterface {
     
     func settingTheme() {
         
-        let objectFromUserDefaults = UserDefaults.standard.object(forKey: "chosenColorSet") as? Int
+        let objectFromUserDefaults = UserDefaults.standard.integer(forKey: "chosenColorSet")
         var colorSet = ColorSet()
         
         arrayWithColorSets = ColorSetGenerator.sharedInstance.generateColorSetsArray()
-        colorSet = arrayWithColorSets[objectFromUserDefaults!]
+        colorSet = arrayWithColorSets[objectFromUserDefaults]
         
         self.view.backgroundColor = colorSet.colorD
         

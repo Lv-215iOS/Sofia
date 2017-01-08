@@ -16,18 +16,14 @@ class ThemesTableViewController: UITableViewController {
         super.viewDidLoad()
         arrayWithColorSets = ColorSetGenerator.sharedInstance.generateColorSetsArray()
     }
-
-    
     
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return arrayWithColorSets.count
     }
 
@@ -39,7 +35,7 @@ class ThemesTableViewController: UITableViewController {
         let currentSet = arrayWithColorSets[indexPath.row]
         cell.colorSetLabel?.text = currentSet.setName
         cell.colorSetImage?.image = UIImage.init(named: currentSet.setIcon)
-        cell.colorSetImage?.layer.cornerRadius = 25
+        cell.colorSetImage?.layer.cornerRadius = 25//making imageView round
         cell.colorSetImage?.layer.masksToBounds = true
 
         return cell
@@ -48,7 +44,6 @@ class ThemesTableViewController: UITableViewController {
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         UserDefaults.standard.set(indexPath.row, forKey: "chosenColorSet")
     }
 

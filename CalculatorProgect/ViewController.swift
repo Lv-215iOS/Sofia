@@ -29,7 +29,9 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        if UserDefaults.standard.bool(forKey: "musicIsPlaying") == false {
+        let musicIsPlaying = UserDefaults.standard.bool(forKey: "musicIsPlaying")
+        
+        if musicIsPlaying == false {
             stopMusic()
             
         } else {

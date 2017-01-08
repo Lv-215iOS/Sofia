@@ -29,8 +29,8 @@ class ColorSetGenerator: NSObject {
         colorSet.colorB = UIColor.init(colorLiteralRed: 70.0 / 255.0, green: 149.0 / 255.0, blue: 161.0 / 255.0, alpha: 0.89)//light
         colorSet.colorC = UIColor.init(colorLiteralRed: 39.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 0.9)//equal
         colorSet.colorD = UIColor.init(colorLiteralRed: 230.0 / 255.0, green: 229.0 / 255.0, blue: 231.0 / 255.0, alpha: 1.0)// background
-        colorSet.setIcon = "turquiseSet"
-        colorSet.setName = "Turquise"
+        colorSet.setIcon = "turquoiseSet"
+        colorSet.setName = "Turquoise"
         
         return colorSet
     }
@@ -55,7 +55,7 @@ class ColorSetGenerator: NSObject {
         colorSet.colorB = UIColor.init(colorLiteralRed: 186.0 / 255.0, green: 100.0 / 255.0, blue: 102.0 / 255.0, alpha: 0.89)
         colorSet.colorC = UIColor.init(colorLiteralRed: 205.0 / 255.0, green: 92.0 / 255.0, blue: 92.0 / 255.0, alpha: 1.0)
         colorSet.colorD = UIColor.init(colorLiteralRed: 230.0 / 255.0, green: 229.0 / 255.0, blue: 231.0 / 255.0, alpha: 1.0)
-        colorSet.setIcon = "violetSet"
+        colorSet.setIcon = "marsalaSet"
         colorSet.setName = "Marsala"
         
         return colorSet
@@ -69,7 +69,7 @@ class ColorSetGenerator: NSObject {
         colorSet.colorB = UIColor.init(colorLiteralRed: 157.0 / 255.0, green: 177.0 / 255.0, blue: 82.0 / 255.0, alpha: 1.0)
         colorSet.colorC = UIColor.init(colorLiteralRed: 107.0 / 255.0, green: 142.0 / 255.0, blue: 35.0 / 255.0, alpha: 0.89)
         colorSet.colorD = UIColor.init(colorLiteralRed: 230.0 / 255.0, green: 229.0 / 255.0, blue: 231.0 / 255.0, alpha: 1.0)
-        colorSet.setIcon = "violetSet"
+        colorSet.setIcon = "oliveSet"
         colorSet.setName = "Olive"
         
         return colorSet

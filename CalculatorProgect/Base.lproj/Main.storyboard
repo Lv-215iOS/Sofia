@@ -469,15 +469,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="turquiseSet" translatesAutoresizingMaskIntoConstraints="NO" id="Qlq-4d-f8m">
-                                            <rect key="frame" x="17" y="2" width="50" height="50"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="turquoiseSet" translatesAutoresizingMaskIntoConstraints="NO" id="Qlq-4d-f8m">
+                                            <rect key="frame" x="17" y="10" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="Z4o-UQ-p6a"/>
                                                 <constraint firstAttribute="height" constant="50" id="agB-4S-wIz"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efx-C4-iz2">
-                                            <rect key="frame" x="91" y="12" width="276" height="31"/>
+                                            <rect key="frame" x="91" y="19.5" width="276" height="31"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="276" id="lYT-tw-02K"/>
                                                 <constraint firstAttribute="height" constant="31" id="ufO-wW-2io"/>
@@ -570,6 +570,6 @@
     <resources>
         <image name="editImage" width="64" height="64"/>
         <image name="musicOn" width="64" height="64"/>
-        <image name="turquiseSet" width="150" height="150"/>
+        <image name="turquoiseSet" width="150" height="150"/>
     </resources>
 </document>
