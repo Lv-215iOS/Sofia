@@ -43,6 +43,16 @@ class ThemesTableViewController: UITableViewController {
         return cell
     }
  
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        UserDefaults.standard.set(indexPath.row, forKey: "chosenColorSet")
+    }
+
+    
+    
+    
 
     /*
     // Override to support conditional editing of the table view.

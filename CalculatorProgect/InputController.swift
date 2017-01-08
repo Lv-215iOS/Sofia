@@ -16,6 +16,12 @@ class InputController: UIViewController, InputInterface {
     var audioPlayerForButtons = AVAudioPlayer()
     var audioPlayerForBackgroundMusic = AVAudioPlayer()
     
+    var arrayWithColorSets = Array<ColorSet>()
+    
+    @IBOutlet var darkShadeButtons: [UIButton]!
+    @IBOutlet var lightShadeButtons: [UIButton]!
+    @IBOutlet weak var equalButtonOutlet: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         do {
@@ -23,9 +29,38 @@ class InputController: UIViewController, InputInterface {
             audioPlayerForButtons.prepareToPlay()
         }
         catch {
-        print(error)
+            print(error)
         }
         backgroundMusic()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        settingTheme()
+    }
+    
+    func settingTheme() {
+        
+        let objectFromUserDefaults = UserDefaults.standard.object(forKey: "chosenColorSet") as? Int
+        var colorSet = ColorSet()
+        
+        arrayWithColorSets = ColorSetGenerator.sharedInstance.generateColorSetsArray()
+        colorSet = arrayWithColorSets[objectFromUserDefaults!]
+        
+        self.view.backgroundColor = colorSet.colorD
+        
+        for button in darkShadeButtons {
+            button.backgroundColor = colorSet.colorA
+            button.titleLabel?.textColor = colorSet.colorD
+        }
+        
+        for button in lightShadeButtons {
+            button.backgroundColor = colorSet.colorB
+            button.titleLabel?.textColor = colorSet.colorD
+        }
+        
+        equalButtonOutlet.backgroundColor = colorSet.colorC
+        equalButtonOutlet.titleLabel?.textColor = colorSet.colorD
+        
     }
     
     func backgroundMusic() {

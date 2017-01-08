@@ -13,6 +13,8 @@ class OutputController: UIViewController, OutputInterface {
     
     @IBOutlet weak var displayView: UILabel!
     
+    var arrayWithColorSets = Array<ColorSet>()
+
     func outputDisplayText(_ value: String) {
         
 //        let formatted = String(format: "%g", Float(value)!)
@@ -23,4 +25,23 @@ class OutputController: UIViewController, OutputInterface {
     func displayTextValue() -> String {
         return displayView.text ?? ""
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        settingTheme()
+    }
+ 
+    func settingTheme() {
+        
+        let objectFromUserDefaults = UserDefaults.standard.object(forKey: "chosenColorSet") as? Int
+        var colorSet = ColorSet()
+
+        arrayWithColorSets = ColorSetGenerator.sharedInstance.generateColorSetsArray()
+        colorSet = arrayWithColorSets[objectFromUserDefaults!]
+        
+        self.view.backgroundColor = colorSet.colorD
+        displayView.textColor = colorSet.colorB
+        
+        }
+    
+    
 }
