@@ -34,12 +34,14 @@ class ThemesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath) as! AppThemeTableViewCell
         
         let currentSet = arrayWithColorSets[indexPath.row]
-        cell.textLabel?.text = currentSet.setName
-        cell.imageView?.image = UIImage.init(named: currentSet.setIcon)
-        
+        cell.colorSetLabel?.text = currentSet.setName
+        cell.colorSetImage?.image = UIImage.init(named: currentSet.setIcon)
+        cell.colorSetImage?.layer.cornerRadius = 25
+        cell.colorSetImage?.layer.masksToBounds = true
+
         return cell
     }
  

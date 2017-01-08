@@ -173,7 +173,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-OI-p0F">
                                                 <rect key="frame" x="74.5" y="0.0" width="71.5" height="102"/>
-                                                <color key="backgroundColor" red="0.27502649029645487" green="0.58379953497720305" blue="0.63122996794871788" alpha="0.88599137931034477" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.61568627450980395" green="0.69411764705882351" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <state key="normal" title="9">
                                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -423,30 +423,30 @@
                     </view>
                     <connections>
                         <outlet property="equalButtonOutlet" destination="VuR-GA-mDz" id="2bv-if-JGJ"/>
-                        <outletCollection property="darkShadeButtons" destination="8z7-sI-L5o" id="GRI-Ix-Igz"/>
-                        <outletCollection property="darkShadeButtons" destination="bfI-qt-2W4" id="ZCb-D6-3bo"/>
-                        <outletCollection property="darkShadeButtons" destination="8db-Q7-YeZ" id="zLV-jf-5fC"/>
-                        <outletCollection property="darkShadeButtons" destination="g0X-9S-d0k" id="cRY-gl-Q7v"/>
-                        <outletCollection property="darkShadeButtons" destination="EDP-Nq-XFv" id="aOL-Ob-cnO"/>
-                        <outletCollection property="darkShadeButtons" destination="vDy-yB-1ka" id="jm9-zz-x5v"/>
-                        <outletCollection property="darkShadeButtons" destination="5YT-w4-1Ea" id="taw-DB-moe"/>
-                        <outletCollection property="darkShadeButtons" destination="Ds1-f1-phm" id="EWg-dE-AUv"/>
-                        <outletCollection property="darkShadeButtons" destination="2yn-xp-wpA" id="mdf-vm-hj8"/>
-                        <outletCollection property="lightShadeButtons" destination="OW6-lD-MDs" id="iU7-U4-3jL"/>
-                        <outletCollection property="lightShadeButtons" destination="tzM-4A-5Sc" id="FwP-3X-QRt"/>
-                        <outletCollection property="lightShadeButtons" destination="i7c-JN-uCi" id="0xJ-jR-BIa"/>
-                        <outletCollection property="lightShadeButtons" destination="85S-Ch-t8i" id="TVK-3W-9Il"/>
-                        <outletCollection property="lightShadeButtons" destination="pA4-Aa-oQP" id="0jZ-RR-1cJ"/>
-                        <outletCollection property="lightShadeButtons" destination="cfg-OI-p0F" id="Qhd-5X-HiD"/>
-                        <outletCollection property="lightShadeButtons" destination="gAr-XC-yti" id="zm7-wZ-8JH"/>
-                        <outletCollection property="lightShadeButtons" destination="LNa-6D-qTy" id="R6t-Ma-FrZ"/>
-                        <outletCollection property="lightShadeButtons" destination="rAd-vF-OCO" id="s3u-ZI-ywA"/>
-                        <outletCollection property="lightShadeButtons" destination="vsX-70-x0V" id="Mfm-T9-mMP"/>
-                        <outletCollection property="lightShadeButtons" destination="zt2-qY-YkD" id="acM-l8-qms"/>
-                        <outletCollection property="lightShadeButtons" destination="Nig-YC-kMZ" id="HOu-Nt-GlB"/>
-                        <outletCollection property="lightShadeButtons" destination="Eul-5y-iN1" id="DDI-dA-NWe"/>
-                        <outletCollection property="lightShadeButtons" destination="uyK-gK-8gp" id="RUZ-8d-p4a"/>
-                        <outletCollection property="lightShadeButtons" destination="UT7-xs-jIr" id="kyy-YV-HVG"/>
+                        <outletCollection property="darkShadeButtons" destination="8z7-sI-L5o" collectionClass="NSMutableArray" id="GRI-Ix-Igz"/>
+                        <outletCollection property="darkShadeButtons" destination="bfI-qt-2W4" collectionClass="NSMutableArray" id="ZCb-D6-3bo"/>
+                        <outletCollection property="darkShadeButtons" destination="8db-Q7-YeZ" collectionClass="NSMutableArray" id="zLV-jf-5fC"/>
+                        <outletCollection property="darkShadeButtons" destination="g0X-9S-d0k" collectionClass="NSMutableArray" id="cRY-gl-Q7v"/>
+                        <outletCollection property="darkShadeButtons" destination="EDP-Nq-XFv" collectionClass="NSMutableArray" id="aOL-Ob-cnO"/>
+                        <outletCollection property="darkShadeButtons" destination="vDy-yB-1ka" collectionClass="NSMutableArray" id="jm9-zz-x5v"/>
+                        <outletCollection property="darkShadeButtons" destination="5YT-w4-1Ea" collectionClass="NSMutableArray" id="taw-DB-moe"/>
+                        <outletCollection property="darkShadeButtons" destination="Ds1-f1-phm" collectionClass="NSMutableArray" id="EWg-dE-AUv"/>
+                        <outletCollection property="darkShadeButtons" destination="2yn-xp-wpA" collectionClass="NSMutableArray" id="mdf-vm-hj8"/>
+                        <outletCollection property="lightShadeButtons" destination="OW6-lD-MDs" collectionClass="NSMutableArray" id="iU7-U4-3jL"/>
+                        <outletCollection property="lightShadeButtons" destination="tzM-4A-5Sc" collectionClass="NSMutableArray" id="FwP-3X-QRt"/>
+                        <outletCollection property="lightShadeButtons" destination="i7c-JN-uCi" collectionClass="NSMutableArray" id="0xJ-jR-BIa"/>
+                        <outletCollection property="lightShadeButtons" destination="85S-Ch-t8i" collectionClass="NSMutableArray" id="TVK-3W-9Il"/>
+                        <outletCollection property="lightShadeButtons" destination="pA4-Aa-oQP" collectionClass="NSMutableArray" id="0jZ-RR-1cJ"/>
+                        <outletCollection property="lightShadeButtons" destination="cfg-OI-p0F" collectionClass="NSMutableArray" id="Qhd-5X-HiD"/>
+                        <outletCollection property="lightShadeButtons" destination="gAr-XC-yti" collectionClass="NSMutableArray" id="zm7-wZ-8JH"/>
+                        <outletCollection property="lightShadeButtons" destination="LNa-6D-qTy" collectionClass="NSMutableArray" id="R6t-Ma-FrZ"/>
+                        <outletCollection property="lightShadeButtons" destination="rAd-vF-OCO" collectionClass="NSMutableArray" id="s3u-ZI-ywA"/>
+                        <outletCollection property="lightShadeButtons" destination="vsX-70-x0V" collectionClass="NSMutableArray" id="Mfm-T9-mMP"/>
+                        <outletCollection property="lightShadeButtons" destination="zt2-qY-YkD" collectionClass="NSMutableArray" id="acM-l8-qms"/>
+                        <outletCollection property="lightShadeButtons" destination="Nig-YC-kMZ" collectionClass="NSMutableArray" id="HOu-Nt-GlB"/>
+                        <outletCollection property="lightShadeButtons" destination="Eul-5y-iN1" collectionClass="NSMutableArray" id="DDI-dA-NWe"/>
+                        <outletCollection property="lightShadeButtons" destination="uyK-gK-8gp" collectionClass="NSMutableArray" id="RUZ-8d-p4a"/>
+                        <outletCollection property="lightShadeButtons" destination="UT7-xs-jIr" collectionClass="NSMutableArray" id="kyy-YV-HVG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eug-at-PLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -457,18 +457,47 @@
         <scene sceneID="ZYK-vQ-xEV">
             <objects>
                 <tableViewController id="bcV-Qk-WkQ" customClass="ThemesTableViewController" customModule="CalculatorProgect" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DMs-z1-XCs">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="DMs-z1-XCs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentifier" id="Bsr-BY-Ju0">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentifier" id="Bsr-BY-Ju0" customClass="AppThemeTableViewCell" customModule="CalculatorProgect" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bsr-BY-Ju0" id="vBd-pF-4VY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="turquiseSet" translatesAutoresizingMaskIntoConstraints="NO" id="Qlq-4d-f8m">
+                                            <rect key="frame" x="17" y="2" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="Z4o-UQ-p6a"/>
+                                                <constraint firstAttribute="height" constant="50" id="agB-4S-wIz"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efx-C4-iz2">
+                                            <rect key="frame" x="91" y="12" width="276" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="276" id="lYT-tw-02K"/>
+                                                <constraint firstAttribute="height" constant="31" id="ufO-wW-2io"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Qlq-4d-f8m" firstAttribute="centerY" secondItem="vBd-pF-4VY" secondAttribute="centerY" id="7RM-Yb-b3i"/>
+                                        <constraint firstItem="efx-C4-iz2" firstAttribute="centerY" secondItem="vBd-pF-4VY" secondAttribute="centerY" id="mjj-Yx-Nds"/>
+                                        <constraint firstItem="Qlq-4d-f8m" firstAttribute="leading" secondItem="vBd-pF-4VY" secondAttribute="leading" constant="17" id="o6g-y6-auS"/>
+                                        <constraint firstItem="efx-C4-iz2" firstAttribute="leading" secondItem="Qlq-4d-f8m" secondAttribute="trailing" constant="24" id="vZU-01-hvo"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="colorSetImage" destination="Qlq-4d-f8m" id="5Id-8k-0cE"/>
+                                    <outlet property="colorSetLabel" destination="efx-C4-iz2" id="XRd-g7-YJc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -479,7 +508,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtM-MW-S3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1439" y="-1277"/>
+            <point key="canvasLocation" x="1437.5999999999999" y="-1277.8110944527737"/>
         </scene>
         <!--Output Controller-->
         <scene sceneID="m1j-vs-Ycf">
@@ -541,5 +570,6 @@
     <resources>
         <image name="editImage" width="64" height="64"/>
         <image name="musicOn" width="64" height="64"/>
+        <image name="turquiseSet" width="150" height="150"/>
     </resources>
 </document>

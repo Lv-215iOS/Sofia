@@ -17,6 +17,7 @@
 		2582D51D1DF81776000AB2DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2582D51B1DF81776000AB2DB /* LaunchScreen.storyboard */; };
 		2582D5281DF81776000AB2DB /* CalculatorProgectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582D5271DF81776000AB2DB /* CalculatorProgectTests.swift */; };
 		2582D5331DF81776000AB2DB /* CalculatorProgectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582D5321DF81776000AB2DB /* CalculatorProgectUITests.swift */; };
+		5186AA021E22F4FB00990C66 /* AppThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5186AA011E22F4FB00990C66 /* AppThemeTableViewCell.swift */; };
 		51C564E71DFC3F600056FE9F /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C564E61DFC3F600056FE9F /* CalculatorBrain.swift */; };
 		51D5EFD61E1EE08000F23B7D /* ThemesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D5EFD51E1EE08000F23B7D /* ThemesTableViewController.swift */; };
 		51D5EFD81E1EE32B00F23B7D /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D5EFD71E1EE32B00F23B7D /* ColorSet.swift */; };
@@ -59,6 +60,7 @@
 		2582D52E1DF81776000AB2DB /* CalculatorProgectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorProgectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2582D5321DF81776000AB2DB /* CalculatorProgectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorProgectUITests.swift; sourceTree = "<group>"; };
 		2582D5341DF81776000AB2DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5186AA011E22F4FB00990C66 /* AppThemeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppThemeTableViewCell.swift; sourceTree = "<group>"; };
 		51C564E61DFC3F600056FE9F /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorBrain.swift; path = Model/CalculatorBrain.swift; sourceTree = "<group>"; };
 		51D5EFD51E1EE08000F23B7D /* ThemesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemesTableViewController.swift; sourceTree = "<group>"; };
 		51D5EFD71E1EE32B00F23B7D /* ColorSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				51D5EFD51E1EE08000F23B7D /* ThemesTableViewController.swift */,
 				51D5EFD71E1EE32B00F23B7D /* ColorSet.swift */,
 				51D5EFD91E1EED8A00F23B7D /* ColorSetGenerator.swift */,
+				5186AA011E22F4FB00990C66 /* AppThemeTableViewCell.swift */,
 				2582D5161DF81776000AB2DB /* Main.storyboard */,
 				2582D5191DF81776000AB2DB /* Assets.xcassets */,
 				2582D51B1DF81776000AB2DB /* LaunchScreen.storyboard */,
@@ -318,6 +321,7 @@
 				25600AD81E03DC0100B81F6E /* CalculatorProtocols.swift in Sources */,
 				2582D5151DF81776000AB2DB /* ViewController.swift in Sources */,
 				51D5EFD81E1EE32B00F23B7D /* ColorSet.swift in Sources */,
+				5186AA021E22F4FB00990C66 /* AppThemeTableViewCell.swift in Sources */,
 				51D5EFD61E1EE08000F23B7D /* ThemesTableViewController.swift in Sources */,
 				2582D5131DF81776000AB2DB /* AppDelegate.swift in Sources */,
 				2564B2E41DFE9EAB007C4CFD /* OutputController.swift in Sources */,

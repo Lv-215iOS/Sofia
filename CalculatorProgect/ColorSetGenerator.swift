@@ -16,6 +16,8 @@ class ColorSetGenerator: NSObject {
         var arrayWithColorSets: Array<ColorSet> = []
         arrayWithColorSets.append(generateColorSetOne())
         arrayWithColorSets.append(generateColorSetTwo())
+        arrayWithColorSets.append(generateColorSetThree())
+        arrayWithColorSets.append(generateColorSetFour())
         return arrayWithColorSets
     }
 
@@ -23,10 +25,10 @@ class ColorSetGenerator: NSObject {
         
         let colorSet = ColorSet()
         
-        colorSet.colorA = UIColor.init(colorLiteralRed: 40.0 / 255.0, green: 110.0 / 255.0, blue: 131.0 / 255.0, alpha: 0.92)//dark turquise
-        colorSet.colorB = UIColor.init(colorLiteralRed: 70.0 / 255.0, green: 149.0 / 255.0, blue: 161.0 / 255.0, alpha: 0.89)//light turquise
-        colorSet.colorC = UIColor.init(colorLiteralRed: 39.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 0.9)//equal button
-        colorSet.colorD = UIColor.init(colorLiteralRed: 230.0 / 255.0, green: 229.0 / 255.0, blue: 231.0 / 255.0, alpha: 1.0)//biege background
+        colorSet.colorA = UIColor.init(colorLiteralRed: 40.0 / 255.0, green: 110.0 / 255.0, blue: 131.0 / 255.0, alpha: 0.92)//dark
+        colorSet.colorB = UIColor.init(colorLiteralRed: 70.0 / 255.0, green: 149.0 / 255.0, blue: 161.0 / 255.0, alpha: 0.89)//light
+        colorSet.colorC = UIColor.init(colorLiteralRed: 39.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 0.9)//equal
+        colorSet.colorD = UIColor.init(colorLiteralRed: 230.0 / 255.0, green: 229.0 / 255.0, blue: 231.0 / 255.0, alpha: 1.0)// background
         colorSet.setIcon = "turquiseSet"
         colorSet.setName = "Turquise"
         
@@ -45,10 +47,32 @@ class ColorSetGenerator: NSObject {
         
         return colorSet
     }
-//    private func generateColorSetThree() -> ColorSet {
-//        
-//    }
-//    private func generateColorSetFour() -> ColorSet {
-//        
-//    }
+    private func generateColorSetThree() -> ColorSet {
+        
+        let colorSet = ColorSet()
+        
+        colorSet.colorA = UIColor.init(colorLiteralRed: 128.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 1.0)
+        colorSet.colorB = UIColor.init(colorLiteralRed: 186.0 / 255.0, green: 100.0 / 255.0, blue: 102.0 / 255.0, alpha: 0.89)
+        colorSet.colorC = UIColor.init(colorLiteralRed: 205.0 / 255.0, green: 92.0 / 255.0, blue: 92.0 / 255.0, alpha: 1.0)
+        colorSet.colorD = UIColor.init(colorLiteralRed: 230.0 / 255.0, green: 229.0 / 255.0, blue: 231.0 / 255.0, alpha: 1.0)
+        colorSet.setIcon = "violetSet"
+        colorSet.setName = "Marsala"
+        
+        return colorSet
+        
+    }
+    private func generateColorSetFour() -> ColorSet {
+        
+        let colorSet = ColorSet()
+        
+        colorSet.colorA = UIColor.init(colorLiteralRed: 85.0 / 255.0, green: 107.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0)
+        colorSet.colorB = UIColor.init(colorLiteralRed: 157.0 / 255.0, green: 177.0 / 255.0, blue: 82.0 / 255.0, alpha: 1.0)
+        colorSet.colorC = UIColor.init(colorLiteralRed: 107.0 / 255.0, green: 142.0 / 255.0, blue: 35.0 / 255.0, alpha: 0.89)
+        colorSet.colorD = UIColor.init(colorLiteralRed: 230.0 / 255.0, green: 229.0 / 255.0, blue: 231.0 / 255.0, alpha: 1.0)
+        colorSet.setIcon = "violetSet"
+        colorSet.setName = "Olive"
+        
+        return colorSet
+        
+    }
 }
