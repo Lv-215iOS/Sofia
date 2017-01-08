@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     var outputController: OutputController? = nil
     var inputController: InputController? = nil
     
+    @IBOutlet weak var musicStateButton: UIButton!
+    
     private var currentInput: Double {//transforms string format into Double
         get {
             return Double(textValue())!
@@ -26,6 +28,14 @@ class ViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        if UserDefaults.standard.bool(forKey: "musicIsPlaying") == false {
+            stopMusic()
+            
+        } else {
+            playMusic()
+        }
+    }
     
     //MARK: Segue
     
@@ -220,17 +230,28 @@ class ViewController: UIViewController {
     func outputText(value: String) {
         self.outputController?.outputDisplayText(value)
     }
+    
     func textValue() -> String {
         return self.outputController?.displayTextValue() ?? ""
     }
-
+    
+    func playMusic() {
+        inputController?.audioPlayerForBackgroundMusic.play()
+        musicStateButton.setBackgroundImage(UIImage(named: "musicOn"), for: .normal)
+        UserDefaults.standard.set(true, forKey: "musicIsPlaying")
+    }
+    
+    func stopMusic() {
+        inputController?.audioPlayerForBackgroundMusic.stop()
+        musicStateButton.setBackgroundImage(UIImage(named: "musicOff"), for: .normal)
+        UserDefaults.standard.set(false, forKey: "musicIsPlaying")
+    }
+    
     @IBAction func musicStateAction(_ sender: UIButton) {
         if      (inputController?.audioPlayerForBackgroundMusic.isPlaying)! {
-            inputController?.audioPlayerForBackgroundMusic.stop()
-             sender.setBackgroundImage(UIImage(named: "musicOff"), for: .normal)
+            stopMusic()
         } else {
-            inputController?.audioPlayerForBackgroundMusic.play()
-            sender.setBackgroundImage(UIImage(named: "musicOn"), for: .normal)
+            playMusic()
         }
     }
     
