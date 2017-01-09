@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "musicOn.png",
+      "filename" : "1484014799_control-volume-yes.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "musicOn-1.png",
+      "filename" : "1484014799_control-volume-yes-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "musicOn-2.png",
+      "filename" : "1484014799_control-volume-yes-2.png",
       "scale" : "3x"
     }
   ],

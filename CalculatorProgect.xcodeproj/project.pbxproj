@@ -22,6 +22,8 @@
 		51D5EFD61E1EE08000F23B7D /* ThemesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D5EFD51E1EE08000F23B7D /* ThemesTableViewController.swift */; };
 		51D5EFD81E1EE32B00F23B7D /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D5EFD71E1EE32B00F23B7D /* ColorSet.swift */; };
 		51D5EFDA1E1EED8A00F23B7D /* ColorSetGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D5EFD91E1EED8A00F23B7D /* ColorSetGenerator.swift */; };
+		51F8179B1E2433C8009F75D6 /* LaunchingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F8179A1E2433C8009F75D6 /* LaunchingPageViewController.swift */; };
+		51F8179F1E244AEF009F75D6 /* MenuNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F8179E1E244AEF009F75D6 /* MenuNavigationViewController.swift */; };
 		51FDB5D71E1BF69600DD5D46 /* click_one.wav in Resources */ = {isa = PBXBuildFile; fileRef = 51FDB5D61E1BF69600DD5D46 /* click_one.wav */; };
 		51FDB5DA1E1C00C600DD5D46 /* Marimba-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 51FDB5D91E1C00C600DD5D46 /* Marimba-music.mp3 */; };
 /* End PBXBuildFile section */
@@ -65,6 +67,8 @@
 		51D5EFD51E1EE08000F23B7D /* ThemesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemesTableViewController.swift; sourceTree = "<group>"; };
 		51D5EFD71E1EE32B00F23B7D /* ColorSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
 		51D5EFD91E1EED8A00F23B7D /* ColorSetGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSetGenerator.swift; sourceTree = "<group>"; };
+		51F8179A1E2433C8009F75D6 /* LaunchingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchingPageViewController.swift; sourceTree = "<group>"; };
+		51F8179E1E244AEF009F75D6 /* MenuNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuNavigationViewController.swift; sourceTree = "<group>"; };
 		51FDB5D61E1BF69600DD5D46 /* click_one.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click_one.wav; sourceTree = "<group>"; };
 		51FDB5D91E1C00C600DD5D46 /* Marimba-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Marimba-music.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +125,8 @@
 				25600AD71E03DC0100B81F6E /* CalculatorProtocols.swift */,
 				51C564E61DFC3F600056FE9F /* CalculatorBrain.swift */,
 				2582D5141DF81776000AB2DB /* ViewController.swift */,
+				51F8179A1E2433C8009F75D6 /* LaunchingPageViewController.swift */,
+				51F8179E1E244AEF009F75D6 /* MenuNavigationViewController.swift */,
 				2564B2E31DFE9EAB007C4CFD /* OutputController.swift */,
 				2564B2E51DFEA65F007C4CFD /* InputController.swift */,
 				51D5EFD51E1EE08000F23B7D /* ThemesTableViewController.swift */,
@@ -323,7 +329,9 @@
 				51D5EFD81E1EE32B00F23B7D /* ColorSet.swift in Sources */,
 				5186AA021E22F4FB00990C66 /* AppThemeTableViewCell.swift in Sources */,
 				51D5EFD61E1EE08000F23B7D /* ThemesTableViewController.swift in Sources */,
+				51F8179B1E2433C8009F75D6 /* LaunchingPageViewController.swift in Sources */,
 				2582D5131DF81776000AB2DB /* AppDelegate.swift in Sources */,
+				51F8179F1E244AEF009F75D6 /* MenuNavigationViewController.swift in Sources */,
 				2564B2E41DFE9EAB007C4CFD /* OutputController.swift in Sources */,
 				51D5EFDA1E1EED8A00F23B7D /* ColorSetGenerator.swift in Sources */,
 			);

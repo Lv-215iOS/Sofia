@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CIG-cN-1LB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="K7f-G5-RYQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -52,7 +52,7 @@
                         <rightBarButtonItems>
                             <barButtonItem id="Z7M-iE-7kz">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xaD-la-sD9">
-                                    <rect key="frame" x="316" y="2" width="43" height="40"/>
+                                    <rect key="frame" x="323" y="5" width="36" height="34"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" backgroundImage="editImage"/>
                                     <connections>
@@ -62,7 +62,7 @@
                             </barButtonItem>
                             <barButtonItem id="ZF6-cR-gES">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XDt-QN-HeJ">
-                                    <rect key="frame" x="271" y="4" width="37" height="35"/>
+                                    <rect key="frame" x="277" y="3" width="38" height="38"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" red="0.15829144649999999" green="0.42973078520000002" blue="0.51550480769999996" alpha="0.92497306030000004" colorSpace="calibratedRGB"/>
                                     <state key="normal" backgroundImage="musicOn"/>
@@ -546,15 +546,49 @@
             </objects>
             <point key="canvasLocation" x="1619" y="-844"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Launching Page View Controller-->
+        <scene sceneID="wKJ-fl-Djo">
+            <objects>
+                <viewController id="K7f-G5-RYQ" customClass="LaunchingPageViewController" customModule="CalculatorProgect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iuH-cw-hNK"/>
+                        <viewControllerLayoutGuide type="bottom" id="atv-Z9-HB1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vak-M6-uYL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="Vg0-69-W0h">
+                                <rect key="frame" x="123" y="269" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="Cia-44-hNK"/>
+                                    <constraint firstAttribute="height" constant="128" id="Tc8-WW-dXp"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Vg0-69-W0h" firstAttribute="centerX" secondItem="Vak-M6-uYL" secondAttribute="centerX" id="Kyx-f8-u2e"/>
+                            <constraint firstItem="Vg0-69-W0h" firstAttribute="centerY" secondItem="Vak-M6-uYL" secondAttribute="centerY" id="OEt-dr-kLe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="launchingImage" destination="Vg0-69-W0h" id="UDH-8W-JbY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="byY-37-mGp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1063" y="-592"/>
+        </scene>
+        <!--Menu Navigation View Controller-->
         <scene sceneID="QMZ-cE-KZo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CIG-cN-1LB" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MenuNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="CIG-cN-1LB" customClass="MenuNavigationViewController" customModule="CalculatorProgect" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZJ2-k7-BZr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.15829144649999999" green="0.42973078520000002" blue="0.51550480769999996" alpha="0.92497306030000004" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.81309922799556222" green="0.80917121240138079" blue="0.81702724358974366" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -568,8 +602,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="editImage" width="64" height="64"/>
-        <image name="musicOn" width="64" height="64"/>
+        <image name="editImage" width="50" height="50"/>
+        <image name="launchImage" width="256" height="256"/>
+        <image name="musicOn" width="256" height="256"/>
         <image name="turquoiseSet" width="150" height="150"/>
     </resources>
 </document>
