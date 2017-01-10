@@ -19,10 +19,10 @@ class ColorSetGenerator: NSObject {
         arrayWithColorSets.append(generateColorSetThree())
         arrayWithColorSets.append(generateColorSetFour())
         arrayWithColorSets.append(generateColorSetFive())
-
+        
         return arrayWithColorSets
     }
-
+    
     private func generateColorSetOne() -> ColorSet {
         
         let colorSet = ColorSet()
@@ -37,9 +37,9 @@ class ColorSetGenerator: NSObject {
         return colorSet
     }
     private func generateColorSetTwo() -> ColorSet {
-
+        
         let colorSet = ColorSet()
-
+        
         colorSet.colorA = UIColor.init(colorLiteralRed: 95.0 / 255.0, green: 50.0 / 255.0, blue: 68.0 / 255.0, alpha: 1.0)
         colorSet.colorB = UIColor.init(colorLiteralRed: 173.0 / 255.0, green: 115.0 / 255.0, blue: 161.0 / 255.0, alpha: 1.0)
         colorSet.colorC = UIColor.init(colorLiteralRed: 71.0 / 255.0, green: 30.0 / 255.0, blue: 46.0 / 255.0, alpha: 0.89)

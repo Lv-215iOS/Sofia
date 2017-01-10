@@ -51,8 +51,8 @@
                     <navigationItem key="navigationItem" id="6Nk-ca-S9t">
                         <rightBarButtonItems>
                             <barButtonItem id="Z7M-iE-7kz">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xaD-la-sD9">
-                                    <rect key="frame" x="323" y="5" width="36" height="34"/>
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xaD-la-sD9">
+                                    <rect key="frame" x="331" y="9" width="28" height="26"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" backgroundImage="editImage"/>
                                     <connections>
@@ -62,7 +62,7 @@
                             </barButtonItem>
                             <barButtonItem id="ZF6-cR-gES">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XDt-QN-HeJ">
-                                    <rect key="frame" x="277" y="3" width="38" height="38"/>
+                                    <rect key="frame" x="295" y="8" width="28" height="28"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" red="0.15829144649999999" green="0.42973078520000002" blue="0.51550480769999996" alpha="0.92497306030000004" colorSpace="calibratedRGB"/>
                                     <state key="normal" backgroundImage="musicOn"/>
@@ -607,9 +607,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="editImage" width="50" height="50"/>
+        <image name="editImage" width="36" height="34"/>
         <image name="launchImage" width="256" height="256"/>
-        <image name="musicOn" width="256" height="256"/>
+        <image name="musicOn" width="38" height="38"/>
         <image name="turquoiseSet" width="150" height="150"/>
     </resources>
 </document>

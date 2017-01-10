@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     var outputController: OutputController? = nil
     var inputController: InputController? = nil
-        
+    
     @IBOutlet weak var musicStateButton: UIButton!
     
     private var currentInput: Double {//transforms string format into Double
@@ -32,7 +32,6 @@ class ViewController: UIViewController {
         let musicIsPlaying = UserDefaults.standard.bool(forKey: "musicIsPlaying")
         if musicIsPlaying == false {
             stopMusic()
-            
         } else {
             playMusic()
         }
@@ -85,7 +84,6 @@ class ViewController: UIViewController {
             brain.digit(value: currentInput)//sets operand
             brain.result = { (resultValue, error)->() in
                 self.outputText(value: NSString(format: "%.14g", resultValue!) as String)//displays formatted result (5)
-                //self.outputText(value: String(describing: resultValue!))//displays result
             }
             brain.utility(operation: UtilityOperation.Equal)//connected to func utility in brain - counts
             brain.operandOne = brain.resultValue
@@ -110,7 +108,6 @@ class ViewController: UIViewController {
                     
                 } else {
                     self.outputText(value: NSString(format: "%.14g", resultValue!) as String)//displays formatted result
-                    //self.outputText(value: String(describing: resultValue!))//displays result
                 }
             }
         }
@@ -150,7 +147,6 @@ class ViewController: UIViewController {
                     self.nillingParameters()
                 } else {
                     self.outputText(value: NSString(format: "%.14g", resultValue!) as String)//displays formatted result (5)
-                    //self.outputText(value: String(describing: resultValue!))//displays result
                 }
             }
         }
@@ -250,7 +246,7 @@ class ViewController: UIViewController {
         return self.outputController?.displayTextValue() ?? ""
     }
     
-        
+    
     func playMusic() {
         inputController?.audioPlayerForBackgroundMusic.play()
         musicStateButton.setBackgroundImage(UIImage(named: "musicOn"), for: .normal)

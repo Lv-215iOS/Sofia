@@ -20,17 +20,17 @@ class ThemesTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayWithColorSets.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath) as! AppThemeTableViewCell
         
         let currentSet = arrayWithColorSets[indexPath.row]
@@ -51,7 +51,7 @@ class ThemesTableViewController: UITableViewController {
         
         return cell
     }
- 
+    
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -64,5 +64,9 @@ class ThemesTableViewController: UITableViewController {
             UserDefaults.standard.set(true, forKey: "rowIsChecked")
             tableView.reloadData()
         }
+    }
+    
+    override var prefersStatusBarHidden: Bool {//makes status bar visible in landscape mode
+        return false
     }
 }

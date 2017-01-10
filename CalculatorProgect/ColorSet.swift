@@ -10,10 +10,10 @@ import UIKit
 
 class ColorSet: NSObject {
     
-     var colorA: UIColor = UIColor.blue
-     var colorB: UIColor = UIColor.red
-     var colorC: UIColor = UIColor.green
-     var colorD: UIColor = UIColor.yellow
+    var colorA: UIColor = UIColor.blue
+    var colorB: UIColor = UIColor.red
+    var colorC: UIColor = UIColor.green
+    var colorD: UIColor = UIColor.yellow
     
     var setName: String = ""
     var setIcon: String = ""

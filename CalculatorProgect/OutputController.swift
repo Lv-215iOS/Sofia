@@ -14,7 +14,7 @@ class OutputController: UIViewController, OutputInterface {
     @IBOutlet weak var displayView: UILabel!
     
     var arrayWithColorSets = Array<ColorSet>()
-
+    
     func outputDisplayText(_ value: String) {
         displayView.text = value
     }
@@ -25,19 +25,19 @@ class OutputController: UIViewController, OutputInterface {
     override func viewWillAppear(_ animated: Bool) {
         settingTheme()
     }
- 
+    
     func settingTheme() {
         
         let objectFromUserDefaults = UserDefaults.standard.integer(forKey: "chosenColorSet")
         var colorSet = ColorSet()
-
+        
         arrayWithColorSets = ColorSetGenerator.sharedInstance.generateColorSetsArray()
         colorSet = arrayWithColorSets[objectFromUserDefaults]
         
         self.view.backgroundColor = colorSet.colorD
         displayView.textColor = colorSet.colorB
         
-        }
+    }
     
     func shakeOutputText() {//animates label
         let animation = CABasicAnimation(keyPath: "position")
