@@ -16,10 +16,6 @@ class OutputController: UIViewController, OutputInterface {
     var arrayWithColorSets = Array<ColorSet>()
 
     func outputDisplayText(_ value: String) {
-        
-//        let formatted = String(format: "%g", Float(value)!)
-//        displayView.text = formatted
-        
         displayView.text = value
     }
     func displayTextValue() -> String {

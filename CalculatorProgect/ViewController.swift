@@ -30,7 +30,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         let musicIsPlaying = UserDefaults.standard.bool(forKey: "musicIsPlaying")
-        
         if musicIsPlaying == false {
             stopMusic()
             
@@ -56,7 +55,7 @@ class ViewController: UIViewController {
     
     func digitPressed(operation : String) {
         if  typingInProcess {
-            if (textValue().characters.count) < 16 {//will not display more than 16 charachters
+            if (textValue().characters.count) < 10 {//will not display more than 10 digits pressed
                 if textValue() == "0" {//tracks 0 and replaces it with next symbol pressed
                     outputText(value: operation)
                 }else {
@@ -85,7 +84,8 @@ class ViewController: UIViewController {
         } else if typingInProcess == true && brain.operandOne != nil {//for multiple operations and operations after "="
             brain.digit(value: currentInput)//sets operand
             brain.result = { (resultValue, error)->() in
-                self.outputText(value: String(describing: resultValue!))//displays result
+                self.outputText(value: NSString(format: "%.14g", resultValue!) as String)//displays formatted result (5)
+                //self.outputText(value: String(describing: resultValue!))//displays result
             }
             brain.utility(operation: UtilityOperation.Equal)//connected to func utility in brain - counts
             brain.operandOne = brain.resultValue
@@ -106,8 +106,8 @@ class ViewController: UIViewController {
                 if (resultValue?.isNaN)! || (resultValue?.isInfinite)! {//checks for error
                     self.outputText(value: "Error")
                 } else {
-                    self.outputText(value: String(describing: resultValue!))//displays result
-                    
+                    self.outputText(value: NSString(format: "%.14g", resultValue!) as String)//displays formatted result
+                    //self.outputText(value: String(describing: resultValue!))//displays result
                 }
             }
         }
@@ -144,8 +144,8 @@ class ViewController: UIViewController {
                 if (resultValue?.isNaN)! || (resultValue?.isInfinite)! {//checks for error
                     self.outputText(value: "Error")
                 } else {
-                    self.outputText(value: String(describing: resultValue!))//displays result
-                    
+                    self.outputText(value: NSString(format: "%.14g", resultValue!) as String)//displays formatted result (5)
+                    //self.outputText(value: String(describing: resultValue!))//displays result
                 }
             }
         }
