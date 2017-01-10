@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     private var currentInput: Double {//transforms string format into Double
         get {
-            return Double(textValue())!
+            return Double(textValue()) ?? 0.0
         }
         set {
             outputText(value:"\(newValue)")
