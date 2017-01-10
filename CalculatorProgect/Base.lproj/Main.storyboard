@@ -460,8 +460,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="DMs-z1-XCs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.90105572759999997" green="0.89670280140000003" blue="0.90540865380000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="sectionIndexBackgroundColor" red="0.90105572759999997" green="0.89670280140000003" blue="0.90540865380000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.79334290635266269" green="0.7895103319258383" blue="0.79717548077948719" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentifier" id="Bsr-BY-Ju0" customClass="AppThemeTableViewCell" customModule="CalculatorProgect" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="70"/>
@@ -495,7 +494,8 @@
                                         <constraint firstItem="efx-C4-iz2" firstAttribute="leading" secondItem="Qlq-4d-f8m" secondAttribute="trailing" constant="24" id="vZU-01-hvo"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.90105572759999997" green="0.89670280140000003" blue="0.90540865380000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.79334290640000005" green="0.78951033189999997" blue="0.7971754808" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="colorSetImage" destination="Qlq-4d-f8m" id="5Id-8k-0cE"/>
                                     <outlet property="colorSetLabel" destination="efx-C4-iz2" id="XRd-g7-YJc"/>
