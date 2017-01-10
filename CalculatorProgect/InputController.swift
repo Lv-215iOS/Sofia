@@ -15,7 +15,7 @@ class InputController: UIViewController, InputInterface {
     
     var audioPlayerForButtons = AVAudioPlayer()
     var audioPlayerForBackgroundMusic = AVAudioPlayer()
-    
+
     var arrayWithColorSets = Array<ColorSet>()
     
     @IBOutlet var darkShadeButtons: [UIButton]!
@@ -32,6 +32,7 @@ class InputController: UIViewController, InputInterface {
             print(error)
         }
         backgroundMusic()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +74,7 @@ class InputController: UIViewController, InputInterface {
             print(error)
         }
     }
+
     
     //MARK: - Actions
     

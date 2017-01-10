@@ -38,4 +38,15 @@ class OutputController: UIViewController, OutputInterface {
         displayView.textColor = colorSet.colorB
         
         }
+    
+    func shakeOutputText() {//animates label
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.05
+        animation.repeatCount = 5
+        animation.autoreverses = true
+        animation.fromValue = CGPoint(x:displayView.center.x, y:displayView.center.y + 5)
+        animation.toValue = CGPoint(x:displayView.center.x, y:displayView.center.y - 5)
+        
+        displayView.layer.add(animation, forKey: "position")
+    }
 }

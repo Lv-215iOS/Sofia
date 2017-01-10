@@ -18,6 +18,8 @@ class ColorSetGenerator: NSObject {
         arrayWithColorSets.append(generateColorSetTwo())
         arrayWithColorSets.append(generateColorSetThree())
         arrayWithColorSets.append(generateColorSetFour())
+        arrayWithColorSets.append(generateColorSetFive())
+
         return arrayWithColorSets
     }
 
@@ -75,4 +77,20 @@ class ColorSetGenerator: NSObject {
         return colorSet
         
     }
+    
+    private func generateColorSetFive() -> ColorSet {
+        
+        let colorSet = ColorSet()
+        
+        colorSet.colorA = UIColor.init(colorLiteralRed: 184 / 255.0, green: 134 / 255.0, blue: 11.0 / 255.0, alpha: 1.0)
+        colorSet.colorB = UIColor.init(colorLiteralRed: 181.0 / 255.0, green: 177.0 / 255.0, blue: 131.0 / 255.0, alpha: 1.0)
+        colorSet.colorC = UIColor.init(colorLiteralRed: 218 / 255.0, green: 165.0 / 255.0, blue: 32.0 / 255.0, alpha: 0.89)
+        colorSet.colorD = UIColor.init(colorLiteralRed: 230.0 / 255.0, green: 229.0 / 255.0, blue: 231.0 / 255.0, alpha: 1.0)
+        colorSet.setIcon = "goldenRodSet"
+        colorSet.setName = "Golden Rod"
+        
+        return colorSet
+        
+    }
+    
 }

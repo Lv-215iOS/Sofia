@@ -17,10 +17,10 @@ class LaunchingPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {//timer; when ends - nav controller is shown
             self.showMenuNavigationViewController()
         }
-        
+        //animations work imultaniouly with timer
         UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             
             self.launchingImage.transform = CGAffineTransform(scaleX: 5.25, y: 5.25)
@@ -38,10 +38,10 @@ class LaunchingPageViewController: UIViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nav =  storyboard.instantiateViewController(withIdentifier: "MenuNavigationViewController") as! UINavigationController
-        rootViewController = nav
-        self.view.addSubview(nav.view)
+        rootViewController = nav//making nav controller - root
+        self.view.addSubview(nav.view)// adding nav controller as subview to launchPageContr
         nav.view.alpha = 0.0
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.5, animations: {//nav controller appears with this animation
             nav.view.alpha = 1.0
         })
     }

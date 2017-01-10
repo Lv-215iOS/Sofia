@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     var outputController: OutputController? = nil
     var inputController: InputController? = nil
-    
+        
     @IBOutlet weak var musicStateButton: UIButton!
     
     private var currentInput: Double {//transforms string format into Double
@@ -105,6 +105,9 @@ class ViewController: UIViewController {
             if resultValue != nil {
                 if (resultValue?.isNaN)! || (resultValue?.isInfinite)! {//checks for error
                     self.outputText(value: "Error")
+                    self.outputController?.shakeOutputText()
+                    self.nillingParameters()
+                    
                 } else {
                     self.outputText(value: NSString(format: "%.14g", resultValue!) as String)//displays formatted result
                     //self.outputText(value: String(describing: resultValue!))//displays result
@@ -143,6 +146,8 @@ class ViewController: UIViewController {
             if resultValue != nil {
                 if (resultValue?.isNaN)! || (resultValue?.isInfinite)! {//checks for error
                     self.outputText(value: "Error")
+                    self.outputController?.shakeOutputText()
+                    self.nillingParameters()
                 } else {
                     self.outputText(value: NSString(format: "%.14g", resultValue!) as String)//displays formatted result (5)
                     //self.outputText(value: String(describing: resultValue!))//displays result
@@ -193,7 +198,15 @@ class ViewController: UIViewController {
     
     //MARK: Additional functions
     
-    func buttonDidPress(operation: String){
+    func nillingParameters() {//in order errors and animations work properly
+        brain.operandOne = nil
+        brain.operandTwo = nil
+        brain.resultValue = nil
+        brain.operationSymbol = nil
+        typingInProcess = false
+    }
+    
+    func buttonDidPress(operation: String){//receives strings of button pressed in inputContr
         switch operation {
         case "1": digitPressed(operation: operation)
         case "2": digitPressed(operation: operation)
@@ -237,6 +250,7 @@ class ViewController: UIViewController {
         return self.outputController?.displayTextValue() ?? ""
     }
     
+        
     func playMusic() {
         inputController?.audioPlayerForBackgroundMusic.play()
         musicStateButton.setBackgroundImage(UIImage(named: "musicOn"), for: .normal)
