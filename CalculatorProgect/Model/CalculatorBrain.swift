@@ -196,17 +196,30 @@ class CalculatorBrain: CalcBrainInterface {
         
         if !dotIsPlaced {
             if typingInProcess {
+                if operandOne != nil && operandTwo == nil {
+                    operandOne = nil
+                } else if operandTwo != nil && operandOne != nil {
+                    operandTwo = nil
+                }
                 displayText = displayText + "."
                 result?(Double(displayText), nil)
             } else {
-                operandTwo = nil
+                if operandOne != nil && operandTwo == nil {
+                    operandOne = nil
+                } else if operandTwo != nil && operandOne != nil {
+                    operandTwo = nil
+                }
                 displayText = "0."
                 typingInProcess = true
                 result?(Double(displayText), nil)
 
             }
         } else if !typingInProcess {//after binary and dot is already placed; after second binary func
-            operandTwo = nil
+            if operandOne != nil && operandTwo == nil {
+                operandOne = nil
+            } else if operandTwo != nil && operandOne != nil {
+                operandTwo = nil
+            }
             displayText = "0."
             typingInProcess = true
             result?(Double(displayText), nil)

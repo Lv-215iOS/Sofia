@@ -124,9 +124,13 @@ class CalculatorProgectTests: XCTestCase {
     }
     //test 7
     func testFractionPlusFraction() {
-        brain?.digit(value: 0.1)
+        brain?.digit(value: 0)
+        brain?.utility(operation: .Dot)
+        brain?.digit(value: 1)
         brain?.binary(operation: .Plus)
-        brain?.digit(value: 0.2)
+        brain?.digit(value: 0)
+        brain?.utility(operation: .Dot)
+        brain?.digit(value: 2)
         var result: Double? = nil
         brain?.result = { (value,error) in
             result = value
@@ -137,7 +141,9 @@ class CalculatorProgectTests: XCTestCase {
     
     //test 8
     func testNegativeFractionPlus8() {
-        brain?.digit(value: 0.5)
+        brain?.digit(value: 0)
+        brain?.utility(operation: .Dot)
+        brain?.digit(value: 5)
         brain?.unary(operation: .PlusMinus)
 
         brain?.binary(operation: .Plus)
@@ -152,11 +158,17 @@ class CalculatorProgectTests: XCTestCase {
     
     //test 9
     func testFractionPlusFractionPlusNegativeFraction() {
-        brain?.digit(value: 0.5)
+        brain?.digit(value: 0)
+        brain?.utility(operation: .Dot)
+        brain?.digit(value: 5)
         brain?.binary(operation: .Plus)
-        brain?.digit(value: 0.2)
+        brain?.digit(value: 0)
+        brain?.utility(operation: .Dot)
+        brain?.digit(value: 2)
         brain?.binary(operation: .Plus)
-        brain?.digit(value: 0.6)
+        brain?.digit(value: 0)
+        brain?.utility(operation: .Dot)
+        brain?.digit(value: 6)
         brain?.unary(operation: .PlusMinus)
 
         var result: Double? = nil
@@ -202,7 +214,9 @@ class CalculatorProgectTests: XCTestCase {
     }
     //test 12
     func testFractionPlusNegative5EqualEqual() {
-        brain?.digit(value: 0.2)
+        brain?.digit(value: 0)
+        brain?.utility(operation: .Dot)
+        brain?.digit(value: 2)
         brain?.binary(operation: .Plus)
         brain?.digit(value: 5)
         brain?.unary(operation: .PlusMinus)
@@ -248,8 +262,11 @@ class CalculatorProgectTests: XCTestCase {
         
         XCTAssert(result == 6)
     }
+    //test 15
     func testFractionSqrt(){
-        brain?.digit(value: 0.25)
+        brain?.digit(value: 0)
+        brain?.utility(operation: .Dot)
+        brain?.digit(value: 25)
         brain?.unary(operation: .Sqrt)
         var result: Double? = nil
         brain?.result = {(value,error) in
