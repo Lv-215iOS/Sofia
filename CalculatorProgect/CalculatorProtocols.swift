@@ -8,26 +8,43 @@
 
 import Foundation
 
-enum BinaryOperation {
-    case Plus
-    case Minus
-    case Mul
-    case Div
+enum BinaryOperation: String {
+    case Plus = "+"
+    case Minus = "-"
+    case Mul = "×"
+    case Div = "÷"
+    case Power = " ̂"
+    case Mod = "%"
 }
 
-enum UnaryOperation {
-    case PlusMinus
-    case SquareRoot
-    case Cos
-    case Sin
-    case Tan
-    case Percent
+enum UnaryOperation: String {
+    case Percent = "%"
+    case Sin = "sin"
+    case Cos = "cos"
+    case Tg = "tg"
+    case Ctg = "ctg"
+    case Sinh = "sinh"
+    case Cosh = "cosh"
+    case Tgh = "tgh"
+    case Ctgh = "ctgh"
+    case Ln = "ln"
+    case Sqrt = "√"
+    case PlusMinus = "+/-"
+    case Log = "log"
+    case Fact = "!"
 }
 
-enum UtilityOperation {
-    case Equal
-    case Clear
-    case Dot
+enum UtilityOperation: String {
+    case Dot = "."
+    case Equal = "="
+    case Clean = "C"
+    case RightBracket = ")"
+    case LeftBracket = "("
+    case AClean = "AC"
+    case MPlus = "M+"
+    case MMinus = "M-"
+    case MClear = "MC"
+    case MRead = "MR"
 }
 
 protocol CalcBrainInterface {
